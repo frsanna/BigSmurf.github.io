@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Francesco Sanna</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/css/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script type="text/javascript" src="resources/js/js.js"></script>
+
+    <script type="text/javascript" src="resources/js/controllers/controller.js"></script>
+
+  </head>
+
+  <body ng-app="app" ng-cloak>
+
+    <div ng-controller="homeCtrl">
+
+      <header>
+        <div class="avatar">
+          <span>
+          <img src="resources/img/avatar.png" title="" alt=""/>
+            </span>
+        </div>
+
+        <div id="me">
+          <p class="name">{{data.general.name}} {{data.general.lastname}}</p>
+          <p class="current">{{data.general.current_position}}</p>
+        </div>
+
+        <div id="menu_icon" ng-click="showMenu = showMenu == true ? false : true">
+          <i class="show_menu fa" ng-class="showMenu == true ? 'fa-times' : 'fa-bars'"></i>
+        </div>
+        <nav>
+          <ul ng-class="{'show_menu': showMenu == true}">
+            <li><a href="index.html" class="selected">Home</a></li>
+            <li><a href="#">resources</a></li>
+            <li><a href="#">@@@@@@@@@@@</a></li>
+            <li><a href="#">@@@@@@@@@@@</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer clearfix">
+          <ul class="social clearfix">
+            <li ng-repeat="(k, v) in data.general.contacts">
+              <a ng-if="k == 'skype'" href="skype:{{v}}?userinfo" class="fa fa-{{k}} {{k}}" data-title="{{k}}"></a>
+              <a ng-if="k == 'envelope'" href="mailto:{{v}}" class="fa fa-{{k}} {{k}}" data-title="{{k}}"></a>
+              <a ng-if="k != 'envelope' && k != 'skype'" href="{{v}}" class="fa fa-{{k}} {{k}}" data-title="{{k}}"></a>
+            </li>
+          </ul>
+
+          <div class="rights">
+            <p>Copyright © 2016.</p>
+        </div >
+      </header>
+
+      <section id="main" class="clearfix">
+        <section id="about">
+          <h1>ABOUT_ME_PLACEHOLDER</h1>
+          <div>
+            {{data.about}}
+          </div>
+        </section>
+
+        <article id="competences">
+          <div class="language">
+            <h1>LANGUAGES_PLACEHOLDER</h1>
+            <div ng-repeat="d in data.competences.languages" class="languages">
+              {{d}}
+            </div>
+          </div>
+
+          <div class="skills">
+            <h1>SKILLS_PLACEHOLDER</h1>
+            <div ng-repeat="d in data.competences.skills" class="skill">
+              <div class="card {{d.id}}">
+                <!-- {{d.text}} -->
+              </div>
+            </div>
+          </div>
+
+          <div class="others">
+            <h1>OTHERS_PLACEHOLDER</h1>
+            <div ng-repeat="d in data.competences.others" class="other">
+              <div class="tag">{{d}}</div>
+            </div>
+          </div>
+        </article>
+
+        <article id="professional_experiences">
+          <h1>PROFESSIONAL_EXPERIENCES_PLACEHOLDER</h1>
+          <div ng-repeat="d in data.professional_experiences">
+            <div class="experience">
+              <ul>
+                <li class="role">{{d.role}}</li>
+                <li class="company"><a href="{{d.company.website}}" target="_blank">{{d.company.name}}</a></li>
+                <li class="address">{{d.address}}</li>
+                <li class="from_to">{{d.ts_from}} - {{d.ts_to}}</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article id="education">
+          <h1>EDUCATION_PLACEHOLDER</h1>
+          <div ng-repeat="d in data.education">
+            <div class="education">
+              <ul>
+                <li class="title">{{d.title}}</li>
+                <li class="address">{{d.address}}</li>
+                <li class="from_to">{{d.ts_from}} - {{d.ts_to}}</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+
+  </body>
+<html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="ua-parser.pack.js"></script>
+    <script type="text/javascript">
+
+    var parser = new UAParser()
+        , result = {}
+        , totals = {}
+        , browsers = [
+            {
+              "user_agent" : "Mozilla/5.0 (Windows NT 5.1; rv:44.0) Gecko/20100101 Firefox/44.0"
+            },
+            {
+              "user_agent" : "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+            },
+            {
+              "user_agent" : "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+            },
+            {
+              "user_agent" : "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+            },
+            {
+              "user_agent" : "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+            }
+        ];
+
+      for( c=0; c< browsers.length; c++){
+
+        parser.setUA(browsers[c].user_agent);
+        var name = parser.getBrowser().name + "_" + parser.getBrowser().major;
+        totals[parser.getBrowser().name] ? totals[parser.getBrowser().name] ++ : totals[parser.getBrowser().name] = 1;
+
+        result[parser.getBrowser().name + "_" + parser.getBrowser().major] ? result[parser.getBrowser().name + "_" + parser.getBrowser().major] ++ : result[parser.getBrowser().name + "_" + parser.getBrowser().major] = 1;
+
+      }
+
+      console.log("@@@@@@@@@@@@@@@ TOTALS @@@@@@@@@@@@@@@");
+      console.log(totals);
+      console.log("@@@@@@@@@@@@@@@ TOTAL @@@@@@@@@@@@@@@");
+      console.log(browsers.length);
+      console.log("@@@@@@@@@@@@@@@ RESULT @@@@@@@@@@@@@@@");
+      console.log(result);
+
+
+    </script>
+  </head>
+
+  <body>
+
+  </body>
+
+</html>

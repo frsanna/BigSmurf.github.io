@@ -1,0 +1,231 @@
+{
+  "general": {
+    "name": "Francesco",
+    "lastname": "Sanna",
+    "birthday": "17-Nov-1988",
+    "photo": "https://aaaa.bbbb.cccc.ddd",
+    "address": {
+      "street": "Via G. Pau",
+      "number": 5,
+      "city": "Nuoro",
+      "cap": "08100",
+      "state": "Italy"
+    },
+    "contacts": {
+      "envelope": "francescosanna.mail@gmail.com",
+      "skype": "francesco__sanna",
+      "facebook": "https://www.facebook.com/francesco.sanna.9047/about",
+      "linkedin": "http://it.linkedin.com/pub/francesco-sanna/74/815/462"
+    },
+    "current_position": "support | developer @ Vivocha S.p.A."
+  },
+  "professional_experiences": [
+    {
+      "role": [
+        "School Internship"
+      ],
+      "company": {
+        "name": "Meridiana",
+        "website": "http://meridiana.it"
+      },
+      "address": "Olbia (OL) - Italy",
+      "ts_from": "01-Jun-2005",
+      "ts_to": "30-Jun-2005"
+    },
+    {
+      "role": [
+        "Developer"
+      ],
+      "company": {
+        "name": "Reilabs",
+        "website": "http://www.reitek.it/azienda/ricerca-sviluppo/"
+      },
+      "address": "Loc. Piscinamanna - Pula (CA) - 09010",
+      "ts_from": "21-Sep-2011",
+      "ts_to": "31-Dec-2011"
+    },
+    {
+      "role": [
+        "Developer"
+      ],
+      "company": {
+        "name": "Reilabs",
+        "website": "http://www.reitek.it/azienda/ricerca-sviluppo/"
+      },
+      "address": "Loc. Piscinamanna - 09010 Pula (CA)",
+      "ts_from": "01-Jan-2012",
+      "ts_to": "30-Jun-2012"
+    },
+    {
+      "role": [
+        "web Developer",
+        "Customer success manager"
+      ],
+      "company": {
+        "name": "Vivocha S.p.A.",
+        "website": "http://www.vivocha.com/"
+      },
+      "address": "Via Giotto n°38/c - 09121 Cagliari (CA)",
+      "ts_from": "01-Jul-2012",
+      "ts_to": "30-Sep-2012"
+    },
+    {
+      "role": [
+        "web Developer",
+        "Customer success manager"
+      ],
+      "company": {
+        "name": "Vivocha S.p.A.",
+        "website": "http://www.vivocha.com/"
+      },
+      "address": "Via Giotto n°38/c - 09121 Cagliari (CA)",
+      "ts_from": "01-Oct-2012",
+      "ts_to": "30-Mar-2013"
+    },
+    {
+      "role": [
+        "web Developer",
+        "Customer success manager",
+        "2nd level support",
+        "Professional services",
+        "Training"
+      ],
+      "company": {
+        "name": "Vivocha S.p.A.",
+        "website": "http://www.vivocha.com/"
+      },
+      "address": "Via Giotto n°38/c - 09121 Cagliari (CA)",
+      "ts_from": "01-Apr-2013",
+      "ts_to": "Jul-2015"
+    },
+    {
+      "role": [
+        "web Developer",
+        "Customer success manager",
+        "2nd level support",
+        "Professional services",
+        "Training"
+      ],
+      "company": {
+        "name": "Vivocha S.p.A.",
+        "website": "http://www.vivocha.com/"
+      },
+      "address": "Loc. Sa Illetta - SS195, km 2,300 - 09123 Cagliari (CA)",
+      "ts_from": "Jul-2015",
+      "ts_to": ""
+    }
+  ],
+  "education":[
+    {
+      "title": "Certificate of digital sound recording",
+      "address": "Comune di Nuoro - Scuola civica di musica Antonietta Chironi - 08100 Nuoro (Nu)",
+      "ts_from": "01-Sep-2006",
+      "ts_to": "31-Jun-2007"
+    },
+    {
+      "title": "Ragioniere - Perito commerciale Programmatore",
+      "address": "Istituto Tecnico Commerciale G.P. Chironi, 08100 Nuoro (Nu)",
+      "ts_from": "01-Sep-2002",
+      "ts_to": "31-Jul-2007"
+    },
+    {
+      "title": "High Scholl Certificate - Ragioniere - Perito commerciale Programmatore",
+      "address": "Istituto Tecnico Commerciale G.P. Chironi, 08100 Nuoro (Nu)",
+      "ts_from": "01-Sep-2002",
+      "ts_to": "31-Jul-2007"
+    },
+    {
+      "title": "1st level Degree",
+      "address": "Università degli studi di Cagliari - Cagliari (Ca)",
+      "ts_from": "01-Sep-2007",
+      "ts_to": "19-Jul-2011"
+    },
+    {
+      "title": "Formazione addetto al servizio anti incendio",
+      "address": "Comune di Lode, Lode (Nu)",
+      "ts_from": "01-May-2011"
+    },
+    {
+      "title": "Formazione addetto primo soccorso",
+      "address": "Comune di Lode, Lode (Nu)",
+      "ts_from": "06-May-2011",
+      "ts_to": "14-Jun-2011"
+    },
+    {
+      "title": "Formazione informazione ed aggiornamenot dei lavoratori",
+      "address": "Comune di Lode, Lode (Nu)",
+      "note": "Decreto legislativo 81/08 e suc. mod. ed int. lavoratori degli uffici e videoterminali",
+      "ts_from": "06-May-2011",
+      "ts_to": "14-Jun-2011"
+    }
+  ],
+  "competences":{
+    "languages":[
+      {
+        "language": "Italian",
+        "level": "native"
+      },
+      {
+        "language": "English",
+        "level": "B1/B2"
+      }
+    ],
+    "skills":[
+      {
+        "id": "html",
+        "text": "HTML",
+        "level": 8
+      },
+      {
+        "id": "css",
+        "text": "CSS",
+        "level": 8
+      },
+      {
+        "id": "javascript",
+        "text": "JavaScript",
+        "level": 7
+      },
+      {
+        "id": "jquery",
+        "text": "jQuery",
+        "level": 8
+      },
+      {
+        "id": "php",
+        "text": "PHP",
+        "level": 7
+      },
+      {
+        "id": "nodejs",
+        "text": "node.js",
+        "level": 6
+      },
+      {
+        "id": "mysql",
+        "text": "MySQL",
+        "level": 7
+      },
+      {
+        "id": "mongodb",
+        "text": "MongoDB",
+        "level": 7
+      },
+      {
+        "id": "java",
+        "text": "Java",
+        "level": 6
+      },
+      {
+        "id": "zendesk",
+        "text": "Zendesk",
+        "level": 8
+      }
+    ],
+    "others": [
+      "Italian drive license",
+      "Kung Fu black belt"
+    ]
+  },
+  "about": "Gregorio Samsa, svegliandosi una mattina da sogni agitati, si trovò trasformato, nel suo letto, in un enorme insetto immondo. Riposava sulla schiena, dura come una corazza, e sollevando un poco il capo vedeva il suo ventre arcuato, bruno e diviso in tanti segmenti ricurvi, in cima a cui la coperta da letto, vicina a scivolar giù tutta, si manteneva a fatica. Le gambe, numerose e sottili da far pietà, rispetto alla sua corporatura normale, tremolavano senza tregua in un confuso luccichio dinanzi ai suoi occhi. Cosa m’è avvenuto? pensò. Non era un sogno. La sua camera, una stanzetta di giuste proporzioni, soltanto un po’ piccola, se ne stava tranquilla fra le quattro ben note pareti. Sulla tavola, un campionario disfatto di tessuti - Samsa era commesso viaggiatore e sopra, appeso alla parete, un ritratto, ritagliato da lui - non era molto - da una rivista illustrata e messo dentro una bella cornice dorata: raffigurava una donna seduta, ma ben dritta sul busto, con un berretto e un boa di pelliccia; essa levava incontro a chi guardava un pesante manicotto, in cui scompariva tutto l’avambraccio. Lo sguardo di Gregorio si rivolse allora verso la finestra, e il cielo fosco (si sentivano"
+}
