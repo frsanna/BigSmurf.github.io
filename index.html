@@ -79,7 +79,12 @@
             <h1>SKILLS_PLACEHOLDER</h1>
             <div ng-repeat="d in data.competences.skills" class="skill">
               <div class="card {{d.id}}">
-                <!-- {{d.text}} -->
+                <img src="resources/img/{{d.id}}.png">
+                <div class="caption">
+                  <div class="card_title">
+                    <h1>{{d.text}}</h1>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
