@@ -84,123 +84,6 @@ header #menu_icon{
   padding: 10px;
 }
 
-@media all and (min-width:900px){
-  header{
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    min-height: 100%;
-    background: #ffffff;
-    float: left;
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  header .avatar{
-    margin-top: 80px;
-    width: 200px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  header nav ul{
-    display: block;
-    overflow: hidden;
-    margin-top: 38px;
-    list-style: none;
-    opacity: 0.9;
-  }
-
-  header nav ul li{
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  header nav ul li a{
-    color: #454545;
-    font-size: 16px;
-    text-decoration: none;
-    letter-spacing: 1px;
-  }
-
-  header nav ul li a:hover,
-  header nav ul li a.selected{
-    color: #969595;
-    text-decoration: none;
-  }
-
-  header .footer{
-    position: absolute;
-    bottom: 50px;
-  }
-
-  header ul.social{
-    list-style: none;
-    margin-bottom: 5px;
-  }
-
-  header ul.social li{
-    display: block;
-    float: left;
-    position: relative;
-    margin: 0 15px 15px 0;
-  }
-
-  header ul.social li a{
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #a6a6a6;
-    text-align: center;
-    font-size: 20px;
-    line-height: 30px;
-  }
-
-  header ul.social li a,
-  header ul.social li a:visited,
-  header ul.social li a:active{
-    text-decoration: none;
-    color: #969595;
-  }
-
-  header ul.social li a:hover{
-    color: #fff;
-  }
-  header ul.social li a.facebook:hover{
-    background: #47639E;
-  }
-  header ul.social li a.tweeeter:hover{
-    background: #28A9E0;
-  }
-  header ul.social li a.skype:hover{
-    background: #00AFF0;
-  }
-  header ul.social li a.envelope:hover{
-    background: #e07628;
-  }
-  header ul.social li a.linkedin:hover{
-    background: #0077B5;
-  }
-
-  header .rights p{
-    color: #454545;
-    font-size: 11px;
-    letter-spacing: 1px;
-    line-height: 18px;
-    text-align: center;
-  }
-
-  #menu_icon{
-    display: none;
-  }
-
-
-}
-
-
 
 /*
 * main
@@ -401,6 +284,123 @@ header #menu_icon{
 */
 
 /*  Responsive code  */
+
+@media all and (min-width:900px){
+  header{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    min-height: 100%;
+    background: #ffffff;
+    float: left;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  header .avatar{
+    margin-top: 80px;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header nav ul{
+    display: block;
+    overflow: hidden;
+    margin-top: 38px;
+    list-style: none;
+    opacity: 0.9;
+  }
+
+  header nav ul li{
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  header nav ul li a{
+    color: #ccc;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+
+  header nav ul li a:hover,
+  header nav ul li a.selected{
+    color: #969595;
+    text-decoration: none;
+  }
+
+  header .footer{
+    position: absolute;
+    bottom: 50px;
+  }
+
+  header ul.social{
+    list-style: none;
+    margin-bottom: 5px;
+  }
+
+  header ul.social li{
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0 15px 15px 0;
+  }
+
+  header ul.social li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #a6a6a6;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  header ul.social li a,
+  header ul.social li a:visited,
+  header ul.social li a:active{
+    text-decoration: none;
+    color: #969595;
+  }
+
+  header ul.social li a:hover{
+    color: #fff;
+  }
+  header ul.social li a.facebook:hover{
+    background: #47639E;
+  }
+  header ul.social li a.tweeeter:hover{
+    background: #28A9E0;
+  }
+  header ul.social li a.skype:hover{
+    background: #00AFF0;
+  }
+  header ul.social li a.envelope:hover{
+    background: #e07628;
+  }
+  header ul.social li a.linkedin:hover{
+    background: #0077B5;
+  }
+
+  header .rights p{
+    color: #ccc;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  #menu_icon{
+    display: none;
+  }
+
+
+}
+
 
 @media all and (max-width: 900px){
 
