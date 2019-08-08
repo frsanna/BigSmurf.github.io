@@ -340,6 +340,8 @@ header #menu_icon{
   header ul.social{
     list-style: none;
     margin-bottom: 5px;
+    padding: 0;
+    margin-left: 30px;
   }
 
   header ul.social li{
@@ -429,11 +431,11 @@ header #menu_icon{
   }
 
 
-  #menu_icon,
+  /* #menu_icon,
   .close_menu,
   .show_menu{
     display: block;
-  }
+  } */
 
   header nav ul{
     list-style: none;

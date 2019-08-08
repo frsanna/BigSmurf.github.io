@@ -112,7 +112,21 @@
       },
       "address": "Loc. Sa Illetta - SS195, km 2,300 - 09123 Cagliari (CA)",
       "ts_from": "Jul-2015",
-      "ts_to": ""
+      "ts_to": "2018"
+    },
+    {
+      "role": [
+        "Senior Developer",
+        "Professional services",
+        "Training"
+      ],
+      "company": {
+        "name": "Vivocha S.p.A.",
+        "website": "http://www.vivocha.com/"
+      },
+      "address": "",
+      "ts_from": "2018",
+      "ts_to": "Now"
     }
   ],
   "education":[
