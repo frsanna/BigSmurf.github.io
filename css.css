@@ -39,7 +39,7 @@ body .main{
   width: 25vw;
   height: 25vw;
   margin: auto;
-  background: url("./resources/img/avatar.jpg")  center no-repeat;
+  background: url("./resources/img/avatar.jpeg")  center no-repeat;
   background-size: cover;
 }
 
