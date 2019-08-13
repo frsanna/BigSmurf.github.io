@@ -38,8 +38,12 @@ body .main{
   width: 25vw;
   height: 25vw;
   margin: auto;
-  background: url("./resources/img/avatar.jpeg")  center no-repeat;
+  background: url("./resources/img/avatar.jpg")  center no-repeat;
   background-size: cover;
+}
+
+#me .current{
+  margin-top: 4vh;
 }
 
 
@@ -62,12 +66,13 @@ body .main{
   list-style: none;
   margin-bottom: 5px;
   padding: 0;
+  margin-top: 4vh;
 }
 
 .social a{
   width: 30px;
   height: 30px;
-  border: 2px solid #a6a6a6;
+  border: 2px solid #ccc;
   text-align: center;
   font-size: 1em;
   line-height: 2em;
@@ -78,7 +83,7 @@ body .main{
 .social a:visited,
 .social a:active{
   text-decoration: none;
-  color: #969595;
+  color: #ccc;
 }
 
 .social a:hover{
