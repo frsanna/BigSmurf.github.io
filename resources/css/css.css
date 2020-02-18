@@ -38,7 +38,7 @@ body .main{
   width: 25vw;
   height: 25vw;
   margin: auto;
-  background: url("./resources/img/avatar.jpg")  center no-repeat;
+  background: url("../img/avatar.jpg")  center no-repeat;
   background-size: cover;
 }
 
@@ -46,6 +46,9 @@ body .main{
   margin-top: 4vh;
 }
 
+.curriculum{
+  margin: 20px 0;
+}
 
 /* SOCIAL */
 
@@ -76,17 +79,17 @@ body .main{
   text-align: center;
   font-size: 1em;
   line-height: 2em;
-
+  margin-right: 5px;
 }
 
-.social a,
-.social a:visited,
-.social a:active{
+a,
+a:visited,
+a:active{
   text-decoration: none;
   color: #ccc;
 }
 
-.social a:hover{
+a:hover{
   color: #fff;
 }
 .social a.facebook:hover{
