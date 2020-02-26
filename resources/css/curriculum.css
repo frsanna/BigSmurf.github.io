@@ -61,7 +61,8 @@ body .main #contacts a{
 .education,
 .experience,
 .skills,
-.about{
+.about,
+.languages{
   padding: 30px 10vw;
   text-align: justify;
   font-weight: 300;
@@ -71,14 +72,16 @@ body .main #contacts a{
 .education .sectionTitle,
 .experience .sectionTitle,
 .skills .sectionTitle,
-.about .sectionTitle{
+.about .sectionTitle,
+.languages .sectionTitle{
   font-size: 1.5em;
   display: block;
   margin: 10px 0;
   font-weight: bold;
 }
 
-.skills span{
+.skills span,
+.languages span{
   display: inline-block;
   margin: 0 10px;
 }
