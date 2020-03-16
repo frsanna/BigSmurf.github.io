@@ -63,10 +63,14 @@ body .main #contacts a{
 .skills,
 .about,
 .languages{
-  padding: 30px 10vw;
+  padding: 40px 10vw;
   text-align: justify;
   font-weight: 300;
   line-height: 1.5em;
+}
+
+.education{
+  padding-bottom: 100px;
 }
 
 .education .sectionTitle,
