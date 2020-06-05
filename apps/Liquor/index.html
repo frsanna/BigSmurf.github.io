@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Liquor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <link rel="stylesheet" href="css.css">
+    <script>
+      function calc(ev){
+        ev.preventDefault();
+
+        var gAlcol = parseInt(document.getElementById("gAlcol").value)
+            , qAlcol = parseInt(document.getElementById("qAlcol").value)
+            , qWater = parseInt(document.getElementById("qWater").value)
+            , qSugar = parseInt(document.getElementById("qSugar").value) / 1.5879
+            , tmp = parseInt((gAlcol * qAlcol) / (qAlcol + qWater + qSugar));
+
+            document.getElementById("result").innerHTML = tmp + "°";
+
+        return false;
+      }
+    </script>
+
+  </head>
+
+  <body>
+  
+    <section id="form">
+
+      <form onsubmit="return calc(event);">
+        <p>
+          <input type="number" id="gAlcol">
+          <label for="gAlcol" value="95">° Alcol</label>
+        </p>
+        <p>
+          <input type="number" id="qAlcol">
+          <label for="qAlcol">Quantità Alcol (ml)</label>
+        </p>
+        <p>
+          <input type="number" id="qWater">
+          <label for="qWater">Quantità Acqua (ml)</label>
+        </p>
+        <p>
+          <input type="number" id="qSugar">
+          <label for="qSugar">Zuchero (gr)</label>
+        </p>
+        <button >Calcola</button>
+
+      </form>
+
+    </section>
+
+    <section id="resultContainer">
+      <div id="result"></div>
+    </section>
+
+  </body>
+</html>
