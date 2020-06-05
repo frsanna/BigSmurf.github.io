@@ -1,36 +1,34 @@
-<!doctype html>
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
 
-<html>
-  <head>
-    <title>Liquor</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0">
+body *{
+  font-family: 'Lato', sans-serif;
+  transition:all .1s linear;
+  -webkit-transition:all .1s linear;
+  -moz-transition:all .1s linear;
+  -o-transition:all .1s linear;
+  color: #1f1e1e;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
 
-    <link rel="stylesheet" href="css.css">
-    <script src="js.js"></script>
+#form{
+  width: 300px;
+  margin: auto;
+}
 
-  </head>
+#form #button{
+  text-align: center;
+}
 
-  <body>
-  
-    <section id="form">
+#resultContainer{
+  text-align: center;
+  padding: 10%;
+}
 
-      <form>
-        <label for="gAlcol">° Alcol</label>
-        <input type="number" id="gAlcol">
-        <label for="qAlcol">Quantità Alcol (ml)</label>
-        <input type="number" id="qAlcol">
-        <label for="qWater">Quantità Acqua (ml)</label>
-        <input type="number" id="qWater">
-        <label for="qSugar">Zuchero (gr)</label>
-        <input type="number" id="qSugar">
-        <button onsubmit="calc()">Calcola</button>
-
-      </form>
-
-    </section>
-
-    <section id="result"></section>
-
-  </body>
-</html>
+#resultContainer #result{
+  font-size: 30px;
+  font-weight: bold;
+}

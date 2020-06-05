@@ -17,7 +17,28 @@
             , qSugar = parseInt(document.getElementById("qSugar").value) / 1.5879
             , tmp = parseInt((gAlcol * qAlcol) / (qAlcol + qWater + qSugar));
 
-            document.getElementById("result").innerHTML = tmp + "°";
+            if(Number.isNaN(tmp)){ 
+              document.getElementById("result").innerHTML  = "Inserisci i dati, Coglione!"; 
+            }else {
+              document.getElementById("result").innerHTML = tmp  + "°"
+
+              if(tmp < 20){
+                document.getElementById("swear").innerText = "Stiamo facendo liquori per signorine?";
+              }
+
+              if(tmp >= 20 && tmp <= 30 ){
+                document.getElementById("swear").innerText = "Cavolo, questo deve essere buono";
+              }
+
+              if(tmp > 30 && tmp < 40){
+                document.getElementById("swear").innerText = "Questo quasi Liquore da vero uomo";
+              }
+              if(tmp >= 40){
+                document.getElementById("swear").innerText = "Questo  Liquore da vero uomo";
+              }
+            }
+
+            
 
         return false;
       }
@@ -31,8 +52,8 @@
 
       <form onsubmit="return calc(event);">
         <p>
-          <input type="number" id="gAlcol">
-          <label for="gAlcol" value="95">° Alcol</label>
+          <input type="number" id="gAlcol" value="95">
+          <label for="gAlcol">° Alcol</label>
         </p>
         <p>
           <input type="number" id="qAlcol">
@@ -46,14 +67,17 @@
           <input type="number" id="qSugar">
           <label for="qSugar">Zuchero (gr)</label>
         </p>
-        <button >Calcola</button>
+        <p id="button">
+          <button >Calcola</button>
+        </p>
 
       </form>
 
     </section>
 
     <section id="resultContainer">
-      <div id="result"></div>
+      <p><div id="result"></div></p>
+      <p><div id="swear"></div></p>
     </section>
 
   </body>
