@@ -7,7 +7,6 @@ body *{
   -moz-transition:all .1s linear;
   -o-transition:all .1s linear;
   color: #1f1e1e;
-  user-select: none; /* supported by Chrome and Opera */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
