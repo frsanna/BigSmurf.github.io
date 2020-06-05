@@ -2,15 +2,7 @@
 
 body *{
   font-family: 'Lato', sans-serif;
-  transition:all .1s linear;
-  -webkit-transition:all .1s linear;
-  -moz-transition:all .1s linear;
-  -o-transition:all .1s linear;
   color: #1f1e1e;
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 #form{
