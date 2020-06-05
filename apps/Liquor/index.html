@@ -52,23 +52,23 @@
 
       <form onsubmit="return calc(event);">
         <p>
-          <input type="number" pattern="[0-9]" inputmode="numeric" id="gAlcol" value="95" min="0">
+          <input type="number" pattern="[0-9]*" inputmode="numeric" id="gAlcol" value="95" min="0">
           <label for="gAlcol">° Alcol</label>
         </p>
         <p>
-          <input type="number" pattern="[0-9]" inputmode="numeric" id="qAlcol" min="0">
+          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qAlcol" min="0">
           <label for="qAlcol">Quantità Alcol (ml)</label>
         </p>
         <p>
-          <input type="number" pattern="[0-9]" inputmode="numeric" id="qWater" min="0">
+          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qWater" min="0">
           <label for="qWater">Quantità Acqua (ml)</label>
         </p>
         <p>
-          <input type="number" pattern="[0-9]" inputmode="numeric" id="qSugar" min="0">
+          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qSugar" min="0">
           <label for="qSugar">Zucchero (gr)</label>
         </p>
         <p id="button">
-          <button >Calcola</button>
+          <button>Calcola</button>
         </p>
 
       </form>
