@@ -4,7 +4,7 @@ body *{
   font-family: 'Lato', sans-serif;
   color: #1f1e1e;
 }
-
+*/
 #form{
   width: 300px;
   margin: auto;
@@ -22,4 +22,4 @@ body *{
 #resultContainer #result{
   font-size: 30px;
   font-weight: bold;
-} */
+} 
