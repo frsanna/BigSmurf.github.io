@@ -22,7 +22,7 @@ body *{
 body .main{
   padding: 10vh 0;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 75px;
   width: 75%;
 }
 
@@ -41,6 +41,11 @@ body .main #me{
   margin-top: -40px;
 }
 
+body .main #me img.me{
+  width: 50%;
+  border-radius: 50%;
+}
+
 body .main #contacts{
   float: right;
   text-align: justify;
@@ -51,7 +56,7 @@ body .main #contacts{
 body .main #contacts i{
   margin-right: 10px;
 }
-body .main #contacts a{
+body a{
   text-decoration: none;
 }
 
@@ -89,6 +94,11 @@ body .main #contacts a{
 
 .experience li{
   margin: 10px 0px;
+}
+
+.gdpr{
+  font-size: 0.5em;
+  padding: 0 0 20px 50px;
 }
 
 @media all and (max-width: 1075px) {
