@@ -47,7 +47,11 @@ body .main{
 }
 
 .curriculum{
-  margin: 20px 0;
+  margin: 50px 0;
+}
+
+.curriculum .downloadCV{
+  margin: 0 0 0 10px;
 }
 
 /* SOCIAL */
@@ -90,7 +94,7 @@ a:active{
 }
 
 a:hover{
-  color: #fff;
+  opacity: 0.6;
 }
 .social a.facebook:hover{
   background: #47639E;
