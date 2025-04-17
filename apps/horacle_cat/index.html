@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horacle Cat</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    #cat-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #ff66c4;
+    }
+    #answer {
+      font-size: 4rem;
+      margin-top: 1rem;
+      text-shadow: 2px 2px #000;
+    }
+    #refresh {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 1rem;
+      background-color: #ff66c4;
+      color: white;
+      cursor: pointer;
+    }
+    #refresh:hover {
+      background-color: #e255b1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ask the Horacle Cat</h1>
+  <img id="cat-img" src="" alt="Cat">
+  <div id="answer"></div>
+  <button id="refresh">Ask Again</button>
+
+  <script>
+    const yes = [
+      './pics/yes_1.jpg',
+      './pics/yes_2.jpg',
+      './pics/yes_3.jpg',
+      './pics/yes_4.gif',
+    ];
+
+    const no = [
+      './pics/no_1.gif',
+      './pics/no_2.jpg',
+      './pics/no_3.jpg',
+    ];
+
+    function showHoracleCat() {
+      const img = document.getElementById('cat-img');
+      const answer = document.getElementById('answer');
+      const isYes = Math.random() > 0.5;
+
+      if (isYes) {
+        const index = Math.floor(Math.random() * yes.length);
+        img.src = yes[index];
+        // answer.textContent = 'Yes';
+      } else {
+        const index = Math.floor(Math.random() * no.length);
+        img.src = no[index];
+        // answer.textContent = 'No';
+      }
+    }
+
+    document.getElementById('refresh').addEventListener('click', showHoracleCat);
+
+    // Show on load
+    showHoracleCat();
+  </script>
+</body>
+</html>
