@@ -11,15 +11,17 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contacts</a>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contacts</a>
+    </nav>
+  </header>
   <main class="scroll-container">
     <section id="hero" class="section hero">
       <div class="overlay"></div>
@@ -33,10 +35,12 @@
         </div>
       </div>
     </section>
+
     <section id="about" class="section about">
       <h2>About Me</h2>
       <p class="aboutMe">Developer since 2010, specializing in web technologies: Angular, React, Node.js. Experienced in project leadership, integrations, training, and performance tuning. Passionate about clean code and mentoring.</p>
     </section>
+
     <section id="skills" class="section skills">
       <h2>Skills</h2>
       <div class="grid">
@@ -52,6 +56,7 @@
         <div class="card"><i class="fas fa-chalkboard-teacher"></i><span>Technical Training</span></div>
       </div>
     </section>
+
     <section id="projects" class="section projects">
       <h2>Key Projects</h2>
       <div class="grid project-grid">
@@ -126,24 +131,28 @@
         </div>
       </div>
     </section>
+
     <section id="education" class="section education">
       <h2>Education & Certifications</h2>
       <ul>
         <li><i class="fas fa-graduation-cap"></i> B.Sc. Computer Science, University of Cagliari</li>
-        <!-- <li><i class="fas fa-certificate"></i> Certified ScrumMaster (CSM)</li> -->
       </ul>
     </section>
+
     <section id="contact" class="section contact">
       <h2>Contacts</h2>
       <p><i class="fas fa-envelope"></i> job@francescosanna.eu</p>
-      <p><i class="fas fa-map-marker-alt"></i> Cagliari, Italy</p>
+      <p><address><i class="fas fa-map-marker-alt"></i> Cagliari, Italy</address></p>
       <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/francesco-sanna">LinkedIn</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/frsanna">GitHub</a></p>
+      <!-- <p><i class="fab fa-github"></i> <a href="https://github.com/frsanna">GitHub</a></p> -->
     </section>
   </main>
 
-  <button id="prevBtn" class="nav-btn up">&#9650;</button>
-  <button id="nextBtn" class="nav-btn down">&#9660;</button>
+  <div id="navButtons">
+    <button id="prevBtn" class="nav-btn up">&#9650;</button>
+    <button id="nextBtn" class="nav-btn down">&#9660;</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

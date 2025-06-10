@@ -84,7 +84,7 @@ a{
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: url("resources/img/avatar.jpg") center/cover no-repeat;
+  background: url("resources/img/avatar2.png") center/cover no-repeat;
   border: 3px solid var(--accent);
   margin: 0 auto 1rem;
 }
