@@ -4,7 +4,9 @@
   --text: #333;
   --text2: #555;
   --accent: #2a9d8f;
+  --accent2: #e76f51;
   --highlight: #e9c46a;
+  --main: #2A9D8F;
 }
 * {
   box-sizing: border-box;
@@ -18,6 +20,7 @@ body {
   font-family: "Roboto", sans-serif;
   background: var(--bg);
   color: var(--text);
+  touch-action: manipulation;
 }
 
 a{
@@ -66,7 +69,7 @@ a{
 .hero {
   position: relative;
   width: 100%;
-  background: url("resources/img/avatar_bg.jpg") center/cover no-repeat;
+  /* background: url("resources/img/avatar_bg.jpg") center/cover no-repeat; */
 }
 .overlay {
   position: absolute;
@@ -325,3 +328,113 @@ h2::after {
 .scroll-container::-webkit-scrollbar {
   width: 0;
 }
+
+
+
+/* Easter Egg Animation */
+#easter-egg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(244, 244, 249, 0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #easter-egg.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .logo {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    .frame {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .line {
+      position: absolute;
+      background-color: var(--accent);
+      transform-origin: left center;
+    }
+    .h-line {
+      height: 3px;
+      width: 0;
+    }
+    .v-line {
+      width: 3px;
+      height: 0;
+    }
+    .top { top: 0; left: 0; }
+    .right { top: 0; right: 0; }
+    .bottom { bottom: 0; left: 0; }
+    .left { top: 0; left: 0; }
+    .square {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: scale(0);
+    }
+    .top-left {
+      background-color: var(--accent);
+      top: -10px;
+      left: -10px;
+    }
+    .bottom-right {
+      background-color: var(--accent2);
+      bottom: -10px;
+      right: -10px;
+    }
+    .letters {
+      display: flex;
+      gap: 4px;
+      font-size: 90px;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(20px);
+      letter-spacing: -2px;
+    }
+    .letters span:first-child {
+      color: var(--accent);
+    }
+    .letters span:last-child {
+      color: var(--accent2);
+    }
+
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    @keyframes draw-h { to { width: 100%; } }
+    @keyframes draw-v { to { height: 100%; } }
+    @keyframes draw-h-reverse { from { width: 100%; } to { width: 0; } }
+    @keyframes draw-v-reverse { from { height: 100%; } to { height: 0; } }
+    @keyframes pop { to { transform: scale(1); } }
+    @keyframes pop-reverse { from { transform: scale(1); } to { transform: scale(0); } }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes rise-reverse { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(20px); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
