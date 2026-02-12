@@ -27,8 +27,15 @@ a{
   text-decoration: none;
   color: var(--accent);
   transition: color 0.3s;
-
 }
+a.noDecoration {
+  color: var(--text);
+}
+a.noDecoration:hover {
+  color: var(--accent);
+  transition: color 0.3s;
+}
+
 .navbar {
   position: fixed;
   top: 0;
