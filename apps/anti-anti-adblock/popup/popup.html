@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anti Anti-AdBlock - Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="stack">
+    <section class="card">
+      <h1 class="title">New rule</h1>
+      <p class="subtitle">Create a rule to remove popups, overlays, and scroll locks.</p>
+
+      <div class="field">
+        <label for="scope">Rule type</label>
+        <select id="scope">
+          <option value="site">Current site only</option>
+          <option value="global">Global (all sites)</option>
+        </select>
+        <small>Use global only for selectors that appear across multiple sites.</small>
+      </div>
+
+      <div class="field">
+        <label for="domain">Domain</label>
+        <div class="row">
+          <input type="text" id="domain" placeholder="example.com">
+          <button id="prefill" type="button">Use tab</button>
+        </div>
+        <small>Auto-filled from the active tab, without the <code>www</code> prefix.</small>
+      </div>
+
+      <div class="field">
+        <label for="selectors">CSS selectors to remove</label>
+        <input type="text" id="selectors" placeholder="#overlay, .paywall-modal, [data-adblock]">
+        <small>Separate selectors with commas.</small>
+      </div>
+
+      <div class="field">
+        <label for="classes">Classes to remove from <code>body/html</code> (optional)</label>
+        <input type="text" id="classes" placeholder="no-scroll, modal-open, overflow-hidden">
+        <small>Use this when a page still blocks scrolling after popup removal.</small>
+      </div>
+
+      <button class="primary" id="add" type="button">Save rule</button>
+    </section>
+
+    <section class="card">
+      <h2 class="title">Rules management</h2>
+      <p class="subtitle">Filter and manage rules by domain.</p>
+
+      <div class="toolbar">
+        <select id="domainFilter"></select>
+        <span id="count" class="meta"></span>
+      </div>
+
+      <div id="empty" hidden>No rules in this view.</div>
+      <div id="list" class="rules"></div>
+    </section>
+
+    <section class="hint">
+      To find selectors: right-click the popup element, choose <strong>Inspect</strong>, then copy id/class selectors.
+      If a site reinserts elements dynamically, the extension keeps removing them.
+    </section>
+  </main>
+
+  <script src="../shared/rule-utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

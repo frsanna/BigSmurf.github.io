@@ -2,182 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francesco Sanna</title>
+  <meta name="description" content="Technical Project Leader and Software Developer with experience in Angular, React, Node.js, integrations, training, and performance tuning.">
+  <meta name="author" content="Francesco Sanna">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://francescosanna.eu/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Francesco Sanna - Technical Project Leader &amp; Software Developer">
+  <meta property="og:description" content="Portfolio and experience in software development, integrations, technical leadership, and training.">
+  <meta property="og:url" content="https://francescosanna.eu/">
+  <meta property="og:image" content="https://francescosanna.eu/resources/img/avatar2.png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Francesco Sanna - Technical Project Leader &amp; Software Developer">
+  <meta name="twitter:description" content="Portfolio and experience in software development, integrations, technical leadership, and training.">
+  <meta name="twitter:image" content="https://francescosanna.eu/resources/img/avatar2.png">
   <link rel="icon" type="image/x-icon" href="resources/img/logo.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Francesco Sanna",
+      "jobTitle": "Technical Project Leader & Software Developer",
+      "url": "https://francescosanna.eu/",
+      "email": "mailto:job@francescosanna.eu",
+      "sameAs": [
+        "https://www.linkedin.com/in/francesco-sanna"
+      ]
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contacts</a>
-    </nav>
-  </header>
+  <div data-include="components/header.html"></div>
+
   <main class="scroll-container">
-    <section id="hero" class="section hero">
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <div class="avatar" id="trigger-logo"></div>
-        <div id="easter-egg" class="noselect">
-          <div class="logo">
-            <div class="frame">
-              <div class="line h-line top"></div>
-              <div class="line v-line right"></div>
-              <div class="line h-line bottom"></div>
-              <div class="line v-line left"></div>
-            </div>
-            <div class="square top-left"></div>
-            <div class="square bottom-right"></div>
-            <div class="letters">
-              <span>F</span><span>S</span>
-            </div>
-          </div>
-        </div>
-        <h1>Francesco Sanna</h1>
-        <p class="subtitle">Technical Project Leader & Software Developer</p>
-        <div class="hero-buttons">
-          <a href="resources/curriculum.pdf" class="btn primary"><i class="fas fa-download"></i> Download CV</a>
-          <a href="#contact" class="btn outline">Get in Touch</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section about">
-      <h2>About Me</h2>
-      <p class="aboutMe">
-        Developer since 2010, specializing in web technologies: Angular, React, Node.js, MongoDB, and more. 
-        Experienced in project leadership, integrations, training, and performance tuning. 
-        Passionate about clean code and mentoring.
-      </p>
-    </section>
-
-    <section id="skills" class="section skills">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card"><i class="fab fa-html5"></i><span>HTML5</span></div>
-        <div class="card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-        <div class="card"><i class="fab fa-js"></i><span>JavaScript</span></div>
-        <div class="card"><i class="fab fa-angular"></i><span>Angular</span></div>
-        <div class="card"><i class="fab fa-react"></i><span>React</span></div>
-        <div class="card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-        <div class="card"><i class="fas fa-database"></i><span>MongoDB</span></div>
-        <div class="card"><i class="fab fa-github"></i><span>Git & CI/CD</span></div>
-        <div class="card"><i class="fas fa-chart-line"></i><span>Performance Tuning</span></div>
-        <div class="card"><i class="fas fa-chalkboard-teacher"></i><span>Technical Training</span></div>
-      </div>
-    </section>
-
-    <section id="projects" class="section projects">
-      <h2>Key Projects</h2>
-      <div class="grid project-grid">
-        <div class="card project-card">
-          <h3>Custom Third-Party Integrations</h3>
-          <p><strong>JavaScript, Angular, Node.js, REST APIs</strong></p>
-          <p>
-            Developed bespoke integrations between client systems and external platforms, 
-            from initial scoping through to delivery.
-          </p>
-        </div>
-        <div class="card project-card">
-          <h3>Technical & Non-Technical Training</h3>
-          <p><strong>JavaScript SDK, REST API, Workshop Delivery</strong></p>
-          <p>
-            Designed and delivered both technical and non-technical training programs 
-            for global customers, ranging from basic overviews to deep dives into Software architecture.
-          </p>
-        </div>
-        <div class="card project-card">
-          <h3>Customer Collaboration</h3>
-          <p>Lead technical deep dives with stakeholders to clarify requirements, demo proof-of-concepts, and agree on cut-over plans—ensuring everyone stays on the same page.</p>
-        </div>
-        <div class="card project-card">
-          <h3>Chat & Video-Chat Widgets</h3>
-          <p><strong>JavaScript, Angular, CSS</strong></p>
-          <p>Built a suite of embeddable chat and video-chat widgets with real-time messaging, user notifications, 
-            and event handling—used across multiple client portals to boost engagement.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="event">
-          <div class="date">2024 - Present</div>
-          <div class="details">
-            <h3>Technical Project Leader <br> <p class="at">@Stackhouse - Spindox</p></h3>
-            <ul>
-              <li>Lead and mentor.</li>
-              <li>Define project roadmaps, run sprint planning and retrospectives.</li>
-              <li>Conduct code reviews and enforce best practices to improve overall code quality.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="event">
-          <div class="date">2015 - 2024</div>
-          <div class="details">
-            <h3>Web Developer & Customer Success & Professional Services Lead & Technical Trainer <br> <p class="at">@Vivocha</p></h3>
-            <ul>
-              <li>Gathered requirements and rolled out custom platform integrations for banking and insurance customers.</li>
-              <li>Acted as the point of contact and drove projects from kickoff through go-live.</li>
-              <li>Created and presented hands-on workshops on JavaScript SDKs and REST APIs to international developer teams.</li>
-              <li>Customized training materials to suit both technical and non-technical audiences.</li>
-              <li>Implemented HTML/CSS/JavaScript solutions for customer-facing components.</li>
-              <li>Advised clients on tailored workflows and best-practice implementations to boost productivity.</li>
-              <li>Provided second-level support, resolving high-priority tickets and maintaining SLAs.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="event">
-          <div class="date">2010 - 2015</div>
-          <div class="details">
-            <h3>Developer & Intern <br> <p class="at">@Reilabs</p></h3>
-            <ul>
-              <li>Developed both front-end and back-end features for a web analytics tool.</li>
-              <li>Integrated RESTful data feeds and built interactive dashboards for KPI visualization.</li>
-              <li>Collaborated to refine metrics and optimize page load and Database performance</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section education">
-      <h2>Education & Certifications</h2>
-      <ul>
-        <li><i class="fas fa-graduation-cap"></i> B.Sc. Computer Science, University of Cagliari</li>
-        <li><i class="fa-brands fa-w3c"></i> 
-          <a class="noDecoration" href="https://verify.w3schools.com/1QRUA6J16Y" target="_blank"> 
-            W3Schools React certification - Certified React Developer Professional Level 
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact" class="section contact">
-      <h2>Contacts</h2>
-      <p><i class="fas fa-envelope"></i> job@francescosanna.eu</p>
-      <p><address><i class="fas fa-map-marker-alt"></i> Cagliari, Italy</address></p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/francesco-sanna">LinkedIn</a></p>
-      <!-- <p><i class="fab fa-github"></i> <a href="https://github.com/frsanna">GitHub</a></p> -->
-    </section>
+    <div data-include="components/hero.html"></div>
+    <div data-include="components/about.html"></div>
+    <div data-include="components/skills.html"></div>
+    <div data-include="components/projects.html"></div>
+    <div data-include="components/experience.html"></div>
+    <div data-include="components/education.html"></div>
+    <div data-include="components/contact.html"></div>
   </main>
 
-  <div id="navButtons">
-    <button id="prevBtn" class="nav-btn up">&#9650;</button>
-    <button id="nextBtn" class="nav-btn down">&#9660;</button>
-  </div>
+  <div data-include="components/nav-buttons.html"></div>
 
+  <noscript>
+    <p style="padding:1rem;text-align:center;color:#333;">This site requires JavaScript to load page components.</p>
+  </noscript>
+
+  <script src="components-inline.js"></script>
+  <script src="include-components.js"></script>
+  <script src="console-contact-terminal.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

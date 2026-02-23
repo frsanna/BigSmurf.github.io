@@ -1,0 +1,188 @@
+:root {
+  --bg: #f7f8fc;
+  --card: #ffffff;
+  --text: #1a1f36;
+  --muted: #5f6b87;
+  --border: #d7ddf0;
+  --accent: #0f5fff;
+  --accent-soft: #eaf0ff;
+  --danger: #bf2f2f;
+  --success: #1f8f49;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 14px;
+  width: 560px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top right, #eef2ff 0%, var(--bg) 60%);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.title {
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field small {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: end;
+}
+
+button {
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+button.primary {
+  color: #fff;
+  background: var(--accent);
+}
+
+button.danger {
+  border-color: #ffd2d2;
+  color: var(--danger);
+  background: #fff0f0;
+}
+
+button.success {
+  border-color: #caf0d7;
+  color: var(--success);
+  background: #ecfff3;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rules {
+  display: grid;
+  gap: 8px;
+  max-height: 250px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.rule {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fcfdff;
+}
+
+.rule-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.meta {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.hint {
+  padding: 8px;
+  border: 1px dashed #cfdaf8;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+  background: #f4f7ff;
+}
+
+#empty {
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Anti Anti-AdBlock (Remove AdBlock detection popups)",
+  "version": "2.5",
+  "description": "Automatically removes anti-adblock overlays and scroll locks. Configurable per site or globally.",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shared/rule-utils.js", "content/default-rules.js", "content/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "options_page": "popup/popup.html",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Anti Anti-AdBlock - Settings",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  }
+}
