@@ -135,6 +135,7 @@ h1 {
 }
 
 .actions {
+  margin-top: .5rem;
   display: flex;
   gap: .65rem;
   flex-wrap: wrap;
