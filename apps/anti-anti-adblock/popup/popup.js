@@ -1,4 +1,5 @@
 const storageKey = "customRules";
+/** @type {{list: HTMLElement, addBtn: HTMLElement, prefillBtn: HTMLButtonElement, scope: HTMLSelectElement, domain: HTMLInputElement, selectors: HTMLInputElement, classes: HTMLInputElement, domainFilter: HTMLSelectElement, count: HTMLElement, empty: HTMLElement}} */
 const elements = {
   list: document.getElementById("list"),
   addBtn: document.getElementById("add"),
@@ -16,6 +17,10 @@ const state = {
   currentDomain: ""
 };
 
+/**
+ * Loads and normalizes custom rules from extension storage.
+ * @returns {Promise<Array<{id: string, domain: string, selectors: string[], bodyClasses: string[], enabled: boolean, createdAt: number}>>}
+ */
 async function loadCustomRules() {
   const { customRules } = await chrome.storage.sync.get(storageKey);
   const raw = Array.isArray(customRules) ? customRules : [];
@@ -25,10 +30,19 @@ async function loadCustomRules() {
     .filter((rule) => RuleUtils.isValidRule(rule));
 }
 
+/**
+ * Persists custom rules to extension storage.
+ * @param {Array<object>} rules - Rules payload.
+ * @returns {Promise<void>}
+ */
 async function persistCustomRules(rules) {
   await chrome.storage.sync.set({ [storageKey]: rules });
 }
 
+/**
+ * Detects normalized domain for the current active tab.
+ * @returns {Promise<string>}
+ */
 async function detectCurrentDomain() {
   try {
     const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -44,10 +58,18 @@ async function detectCurrentDomain() {
   }
 }
 
+/**
+ * Indicates whether popup form is in global rule mode.
+ * @returns {boolean}
+ */
 function isGlobalScope() {
   return elements.scope.value === "global";
 }
 
+/**
+ * Updates domain input state based on selected scope.
+ * @returns {void}
+ */
 function setDomainFieldState() {
   const globalScope = isGlobalScope();
   elements.domain.disabled = globalScope;
@@ -63,6 +85,11 @@ function setDomainFieldState() {
   }
 }
 
+/**
+ * Builds domain filter `<option>` markup from available rules.
+ * @param {Array<{domain: string}>} rules - Existing rules.
+ * @returns {string}
+ */
 function buildDomainFilterOptions(rules) {
   const uniqueDomains = [...new Set(rules.map((rule) => rule.domain))].sort((a, b) => a.localeCompare(b));
   const options = ['<option value="__all__">All domains</option>'];
@@ -81,10 +108,20 @@ function buildDomainFilterOptions(rules) {
   return options.join("");
 }
 
+/**
+ * Returns a short visual label for a rule scope.
+ * @param {string} domain - Rule domain.
+ * @returns {string}
+ */
 function scopeLabel(domain) {
   return domain === "*" ? "Global" : "Site";
 }
 
+/**
+ * Creates one rendered card node for a rule.
+ * @param {{id: string, domain: string, selectors: string[], bodyClasses: string[], enabled: boolean}} rule - Rule data.
+ * @returns {HTMLElement}
+ */
 function renderRuleCard(rule) {
   const safeDomain = rule.domain === "*" ? "Global rule (*)" : RuleUtils.escapeHtml(rule.domain);
   const safeSelectors = rule.selectors.map(RuleUtils.escapeHtml).join(", ");
@@ -113,6 +150,11 @@ function renderRuleCard(rule) {
   return node;
 }
 
+/**
+ * Applies selected domain filter and ordering.
+ * @param {Array<{domain: string, createdAt: number}>} rules - Rules collection.
+ * @returns {Array<any>}
+ */
 function applyFilter(rules) {
   const filter = elements.domainFilter.value || "__all__";
 
@@ -121,10 +163,20 @@ function applyFilter(rules) {
     .sort((a, b) => a.domain.localeCompare(b.domain) || b.createdAt - a.createdAt);
 }
 
+/**
+ * Updates summary counter text.
+ * @param {Array<any>} visibleRules - Filtered rules.
+ * @param {Array<any>} allRules - Full rules list.
+ * @returns {void}
+ */
 function updateCounter(visibleRules, allRules) {
   elements.count.textContent = `${visibleRules.length} rule(s) shown out of ${allRules.length} total`;
 }
 
+/**
+ * Renders current rules list and filter options.
+ * @returns {Promise<void>}
+ */
 async function renderRules() {
   const rules = await loadCustomRules();
   const previousFilter = elements.domainFilter.value;
@@ -143,6 +195,10 @@ async function renderRules() {
   updateCounter(visible, rules);
 }
 
+/**
+ * Reads form values and returns a normalized rule object.
+ * @returns {{id: string, domain: string, selectors: string[], bodyClasses: string[], enabled: boolean, createdAt: number}}
+ */
 function readFormRule() {
   const globalScope = isGlobalScope();
   const domain = globalScope ? "*" : RuleUtils.normalizeDomain(elements.domain.value);
@@ -159,6 +215,11 @@ function readFormRule() {
   };
 }
 
+/**
+ * Clears form fields after successful save.
+ * @param {{domain: string}} savedRule - Recently saved rule.
+ * @returns {void}
+ */
 function clearFormAfterSave(savedRule) {
   elements.selectors.value = "";
   elements.classes.value = "";
@@ -168,6 +229,10 @@ function clearFormAfterSave(savedRule) {
   }
 }
 
+/**
+ * Handles create-rule action from form controls.
+ * @returns {Promise<void>}
+ */
 async function handleAddRule() {
   const newRule = readFormRule();
 
@@ -184,6 +249,11 @@ async function handleAddRule() {
   await renderRules();
 }
 
+/**
+ * Handles toggle/delete actions from list action buttons.
+ * @param {MouseEvent} event - Click event.
+ * @returns {Promise<void>}
+ */
 async function handleRuleActions(event) {
   const button = event.target.closest("button[data-action]");
   if (!button) return;
@@ -206,6 +276,10 @@ async function handleRuleActions(event) {
   await renderRules();
 }
 
+/**
+ * Binds all popup DOM event listeners.
+ * @returns {void}
+ */
 function wireEvents() {
   elements.scope.addEventListener("change", setDomainFieldState);
   elements.prefillBtn.addEventListener("click", () => {
@@ -219,6 +293,10 @@ function wireEvents() {
   elements.list.addEventListener("click", handleRuleActions);
 }
 
+/**
+ * Bootstraps popup with detected domain, listeners, and initial render.
+ * @returns {Promise<void>}
+ */
 async function bootstrap() {
   state.currentDomain = await detectCurrentDomain();
   if (state.currentDomain) {

@@ -17,6 +17,9 @@ Static personal website published on GitHub Pages.
 - `style.css`: global styles
 - `script.js`: site interactions (navigation + logo easter egg)
 - `console-contact-terminal.js`: console easter egg/contact terminal
+- `apps/`: standalone mini apps
+- `apps/lab-archive.html`: hidden app index (not linked from main site)
+- `robots.txt`: asks crawlers to skip the entire `/apps/` area
 
 ## Why `components-inline.js` Exists
 When opening `index.html` directly via `file://`, browsers block `fetch()` for local files (CORS/security restrictions).
@@ -33,6 +36,15 @@ node build-inline-components.js
 ```
 
 This regenerates `components-inline.js` so local `file://` testing matches current components.
+
+No rebuild step is required for `apps/*` pages: they are plain static HTML/CSS/JS.
+
+### Hidden App Archive Config
+Inside `apps/lab-archive.html`:
+- `APPS`: catalog of available app cards
+- `LOCKED_APP_IDS`: list of app ids that require key unlock
+
+Apps not included in `LOCKED_APP_IDS` are shown by default.
 
 ## Local Testing
 ### Option A: Direct file open (works with fallback)
@@ -62,3 +74,4 @@ Then open:
 ## Notes
 - Keep all user-facing text in English.
 - If component markup changes, always regenerate `components-inline.js` before commit.
+- Hidden app index is intentionally unlinked; access it only via direct URL.

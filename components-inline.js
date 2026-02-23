@@ -1,5 +1,6 @@
 // components-inline.js
 // Auto-generated fallback for file:// local testing
+/** @type {Record<string, string>} */
 window.__INLINE_COMPONENTS = {
   "components/about.html": "<section id=\"about\" class=\"section about\">\n  <h2>About Me</h2>\n  <p class=\"aboutMe\">\n    Developer since 2010, specializing in web technologies: Angular, React, Node.js, MongoDB, and more.\n    Experienced in project leadership, integrations, training, and performance tuning.\n    Passionate about clean code and mentoring.\n  </p>\n</section>\n",
   "components/contact.html": "<section id=\"contact\" class=\"section contact\">\n  <h2>Contacts</h2>\n  <p><i class=\"fas fa-envelope\"></i> job@francescosanna.eu</p>\n  <address><i class=\"fas fa-map-marker-alt\"></i> Cagliari, Italy</address>\n  <p><i class=\"fab fa-linkedin\"></i> <a href=\"https://www.linkedin.com/in/francesco-sanna\">LinkedIn</a></p>\n</section>\n",

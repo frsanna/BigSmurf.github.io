@@ -1,85 +1,99 @@
 <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquor Lab</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Liquor Lab</h1>
+      <p>Quick calculator for estimated final alcohol by volume.</p>
+    </header>
 
-<html>
-  <head>
-    <title>Liquor</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0">
+    <section class="panel">
+      <form id="liquor-form" novalidate>
+        <label for="gAlcol">Alcohol Strength (degrees)</label>
+        <input type="number" id="gAlcol" min="0" step="1" value="95" required>
 
-    <link rel="stylesheet" href="css.css">
-    
-    <script>
-      function calc(ev){
-        ev.preventDefault();
+        <label for="qAlcol">Alcohol Volume (ml)</label>
+        <input type="number" id="qAlcol" min="0" step="1" placeholder="e.g. 700" required>
 
-        var gAlcol = parseInt(document.getElementById("gAlcol").value)
-            , qAlcol = parseInt(document.getElementById("qAlcol").value)
-            , qWater = parseInt(document.getElementById("qWater").value)
-            , qSugar = parseInt(document.getElementById("qSugar").value) / 1.5879
-            , tmp = parseInt((gAlcol * qAlcol) / (qAlcol + qWater + qSugar));
+        <label for="qWater">Water Volume (ml)</label>
+        <input type="number" id="qWater" min="0" step="1" placeholder="e.g. 300" required>
 
-            if(Number.isNaN(tmp)){ 
-              document.getElementById("result").innerHTML  = "Inserisci i dati, Coglione!"; 
-            }else {
-              document.getElementById("result").innerHTML = tmp  + "°"
+        <label for="qSugar">Sugar (g)</label>
+        <input type="number" id="qSugar" min="0" step="1" placeholder="e.g. 250" required>
 
-              if(tmp < 20){
-                document.getElementById("swear").innerText = "Stiamo facendo liquori per signorine?";
-              }
-
-              if(tmp >= 20 && tmp <= 30 ){
-                document.getElementById("swear").innerText = "Cavolo, questo deve essere buono";
-              }
-
-              if(tmp > 30 && tmp < 40){
-                document.getElementById("swear").innerText = "Questo quasi Liquore da vero uomo";
-              }
-              if(tmp >= 40){
-                document.getElementById("swear").innerText = "Questo  Liquore da vero uomo";
-              }
-            }
-
-            
-
-        return false;
-      }
-    </script>
-
-  </head>
-
-  <body>
-  
-    <section id="form">
-
-      <form onsubmit="return calc(event);">
-        <p>
-          <input type="number" pattern="[0-9]*" inputmode="numeric" id="gAlcol" value="95" min="0">
-          <label for="gAlcol">° Alcol</label>
-        </p>
-        <p>
-          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qAlcol" min="0">
-          <label for="qAlcol">Quantità Alcol (ml)</label>
-        </p>
-        <p>
-          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qWater" min="0">
-          <label for="qWater">Quantità Acqua (ml)</label>
-        </p>
-        <p>
-          <input type="number" pattern="[0-9]*" inputmode="numeric" id="qSugar" min="0">
-          <label for="qSugar">Zucchero (gr)</label>
-        </p>
-        <p id="button">
-          <button>Calcola</button>
-        </p>
-
+        <button type="submit">Calculate</button>
       </form>
-
     </section>
 
-    <section id="resultContainer">
-      <p><div id="result"></div></p>
-      <p><div id="swear"></div></p>
+    <section class="result-panel" aria-live="polite">
+      <div class="result-head">
+        <span class="label">Estimated ABV</span>
+        <span id="result">-</span>
+      </div>
+      <div class="meter">
+        <div id="meter-fill" class="meter-fill"></div>
+      </div>
+      <p id="note" class="note">Insert values and run calculation.</p>
     </section>
+  </main>
 
-  </body>
+  <script>
+    const form = document.getElementById("liquor-form");
+    const result = document.getElementById("result");
+    const note = document.getElementById("note");
+    const meterFill = document.getElementById("meter-fill");
+
+    /**
+     * Reads a numeric input value by id.
+     * @param {string} id - Input element id.
+     * @returns {number}
+     */
+    function readValue(id) {
+      return Number(document.getElementById(id).value);
+    }
+
+    /**
+     * Maps ABV value to a short profile message.
+     * @param {number} degree - Estimated final ABV.
+     * @returns {string}
+     */
+    function getProfileMessage(degree) {
+      if (degree < 20) return "Light profile: smooth and approachable.";
+      if (degree < 30) return "Balanced profile: nice for after-dinner sipping.";
+      if (degree < 40) return "Strong profile: bold and intense.";
+      return "Very strong profile: handle with respect.";
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const gAlcol = readValue("gAlcol");
+      const qAlcol = readValue("qAlcol");
+      const qWater = readValue("qWater");
+      const qSugar = readValue("qSugar") / 1.5879;
+
+      const denominator = qAlcol + qWater + qSugar;
+      if (!Number.isFinite(denominator) || denominator <= 0) {
+        result.textContent = "-";
+        note.textContent = "Please insert valid numeric values.";
+        meterFill.style.width = "0%";
+        return;
+      }
+
+      const degree = Math.round((gAlcol * qAlcol) / denominator);
+      const safeDegree = Math.max(0, Math.min(degree, 80));
+
+      result.textContent = `${safeDegree}°`;
+      note.textContent = getProfileMessage(safeDegree);
+      meterFill.style.width = `${(safeDegree / 80) * 100}%`;
+    });
+  </script>
+</body>
 </html>

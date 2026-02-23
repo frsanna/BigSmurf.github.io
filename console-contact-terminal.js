@@ -1,5 +1,6 @@
 // console-contact-terminal.js
 (() => {
+  /** @type {{email: string, location: string, linkedin: string}} */
   const contacts = Object.freeze({
     email: "job@francescosanna.eu",
     location: "Cagliari, Italy",
@@ -12,6 +13,10 @@
     table: console.table.bind(console)
   };
 
+  /**
+   * Prints the styled contact-only console surface.
+   * @returns {void}
+   */
   function renderContactTerminal() {
     nativeConsole.clear();
     nativeConsole.log(
@@ -33,6 +38,10 @@
     );
   }
 
+  /**
+   * Public helper object exposed on `window` for quick contact actions.
+   * @type {{email: string, location: string, linkedin: string, sendEmail: () => void, openLinkedIn: () => void}}
+   */
   const fsContact = Object.freeze({
     email: contacts.email,
     location: contacts.location,
@@ -49,6 +58,10 @@
     });
   }
 
+  /**
+   * Overrides key console methods so the terminal remains contact-focused.
+   * @returns {void}
+   */
   function lockConsoleSurface() {
     const blockedMethods = ["log", "info", "warn", "error", "debug", "table", "dir", "trace"];
     blockedMethods.forEach((method) => {

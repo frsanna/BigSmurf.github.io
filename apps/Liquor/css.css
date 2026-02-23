@@ -1,25 +1,136 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
-
-body *{
-  font-family: 'Lato', sans-serif;
-  color: #1f1e1e;
+:root {
+  --bg: #0f1116;
+  --panel: #171c27;
+  --line: #2a3344;
+  --text: #ecf1f8;
+  --muted: #9fb0c8;
+  --accent: #f59e0b;
+  --accent-2: #fb7185;
 }
 
-#form{
-  width: 300px;
-  margin: auto;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 5% 10%, rgba(245, 158, 11, .18), transparent 38%),
+    radial-gradient(circle at 95% 85%, rgba(251, 113, 133, .15), transparent 38%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
 }
 
-#form #button{
-  text-align: center;
+.app {
+  width: min(780px, 100%);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, rgba(23, 28, 39, .95), rgba(13, 18, 28, .95));
+  box-shadow: 0 20px 56px rgba(0, 0, 0, .45);
+  overflow: hidden;
 }
 
-#resultContainer{
-  text-align: center;
-  padding: 10%;
+.top {
+  padding: 1.1rem 1.3rem;
+  border-bottom: 1px solid var(--line);
 }
 
-#resultContainer #result{
-  font-size: 30px;
-  font-weight: bold;
-} 
+h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+.top p {
+  margin: .4rem 0 0;
+  color: var(--muted);
+}
+
+.panel,
+.result-panel {
+  padding: 1.1rem 1.3rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .65rem;
+}
+
+label {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+input,
+button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-size: 1rem;
+}
+
+input {
+  padding: .72rem .82rem;
+  background: #0f1520;
+  color: var(--text);
+}
+
+input:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 62%, white 38%);
+  outline-offset: 2px;
+}
+
+button {
+  margin-top: .35rem;
+  border: none;
+  color: #2c1200;
+  font-weight: 700;
+  padding: .8rem 1rem;
+  cursor: pointer;
+  background: linear-gradient(110deg, #f59e0b, #fb7185);
+}
+
+.result-panel {
+  border-top: 1px solid var(--line);
+}
+
+.result-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .7rem;
+}
+
+.label {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+#result {
+  font-size: clamp(1.4rem, 6vw, 2.4rem);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.meter {
+  margin-top: .65rem;
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #0d131b;
+}
+
+.meter-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #facc15, #f97316, #fb7185);
+  transition: width .45s ease;
+}
+
+.note {
+  margin: .75rem 0 0;
+  color: var(--muted);
+}

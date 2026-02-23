@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Archive</title>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171c24;
+      --line: #2c3441;
+      --text: #ecf0f5;
+      --muted: #9ea9b8;
+      --accent: #4cc9f0;
+      --accent-2: #f72585;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(76, 201, 240, 0.18), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(247, 37, 133, 0.16), transparent 40%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 1.2rem;
+    }
+    .wrap {
+      width: min(840px, 100%);
+      background: color-mix(in srgb, var(--panel) 92%, black 8%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+    }
+    h1 { margin: 0 0 .35rem; font-size: 1.45rem; }
+    p { margin: 0; color: var(--muted); }
+    .gate { margin-top: 1rem; display: flex; gap: .6rem; flex-wrap: wrap; }
+    input, button {
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      font-size: 1rem;
+      padding: .7rem .85rem;
+    }
+    input {
+      flex: 1;
+      min-width: 230px;
+      background: #0e1218;
+      color: var(--text);
+    }
+    button {
+      cursor: pointer;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: white;
+      border: none;
+      font-weight: 700;
+    }
+    #panel { display: none; margin-top: 1.2rem; }
+    .subtle {
+      margin: 0 0 .65rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: .9rem;
+    }
+    .card {
+      background: #10151d;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .card h2 { margin: 0 0 .35rem; font-size: 1.05rem; }
+    .card p { margin: 0 0 .8rem; font-size: .95rem; }
+    .card a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+    .open-link {
+      flex: 1;
+    }
+    .list-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--muted);
+      background: #0f1620;
+    }
+    .list-link:hover {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line) 45%);
+    }
+    #feedback { margin-top: .7rem; color: #ff8fa3; min-height: 1.1rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Experimental Lab Archive</h1>
+    <p>Index for non-production mini apps.</p>
+
+    <section id="public-panel">
+      <p class="subtle">Visible apps</p>
+      <div id="public-apps" class="apps"></div>
+    </section>
+
+    <div class="gate">
+      <input id="key" type="password" placeholder="Access key" autocomplete="off" aria-label="Access key">
+      <button id="unlock" type="button">Unlock private apps</button>
+    </div>
+    <div id="feedback"></div>
+
+    <section id="panel">
+      <p class="subtle">Private apps</p>
+      <div id="private-apps" class="apps"></div>
+    </section>
+  </main>
+
+  <script>
+    /** Secret key used to unlock private app cards. */
+    const KEY = "capybara-lab";
+    /** @type {{id: string, name: string, description: string, appHref: string, listHref: string}[]} */
+    const APPS = [
+      {
+        id: "horacle-cat",
+        name: "Horacle Cat",
+        description: "Chaotic oracle cat with cinematic yes/no verdicts.",
+        appHref: "horacle_cat/index.html",
+        listHref: "horacle_cat/"
+      },
+      {
+        id: "liquor-lab",
+        name: "Liquor Lab",
+        description: "Stylish quick calculator for homemade liquor ABV.",
+        appHref: "liquor/index.html",
+        listHref: "liquor/"
+      }
+    ];
+
+    /** Add here only app ids that should require key unlock. */
+    const LOCKED_APP_IDS = [
+      // "horacle-cat"
+    ];
+
+    const keyInput = document.getElementById("key");
+    const unlockBtn = document.getElementById("unlock");
+    const panel = document.getElementById("panel");
+    const feedback = document.getElementById("feedback");
+    const gate = document.querySelector(".gate");
+    const publicApps = document.getElementById("public-apps");
+    const privateApps = document.getElementById("private-apps");
+
+    /**
+     * Builds a visual card node for one app entry.
+     * @param {{id: string, name: string, description: string, appHref: string, listHref: string}} app - App descriptor.
+     * @returns {HTMLElement}
+     */
+    function createCard(app) {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <h2>${app.name}</h2>
+        <p>${app.description}</p>
+        <div class="card-actions">
+          <a class="open-link" href="${app.appHref}">Open app</a>
+          <a class="list-link" href="${app.listHref}" title="Open directory listing" aria-label="Open directory listing">📁</a>
+        </div>
+      `;
+      return card;
+    }
+
+    /**
+     * Renders public/private app groups and toggles lock UI visibility.
+     * @returns {void}
+     */
+    function renderApps() {
+      publicApps.innerHTML = "";
+      privateApps.innerHTML = "";
+
+      APPS.forEach((app) => {
+        if (LOCKED_APP_IDS.includes(app.id)) {
+          privateApps.appendChild(createCard(app));
+        } else {
+          publicApps.appendChild(createCard(app));
+        }
+      });
+
+      if (!privateApps.children.length) {
+        gate.style.display = "none";
+        feedback.style.display = "none";
+        panel.style.display = "none";
+      } else {
+        gate.style.display = "flex";
+        feedback.style.display = "block";
+      }
+    }
+
+    /**
+     * Validates access key and reveals private apps panel when correct.
+     * @returns {void}
+     */
+    function unlock() {
+      if (!privateApps.children.length) {
+        feedback.textContent = "No private apps configured.";
+        return;
+      }
+
+      if (keyInput.value.trim() === KEY) {
+        panel.style.display = "block";
+        feedback.textContent = "";
+      } else {
+        feedback.textContent = "Invalid key.";
+      }
+    }
+
+    unlockBtn.addEventListener("click", unlock);
+    keyInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        unlock();
+      }
+    });
+
+    renderApps();
+  </script>
+</body>
+</html>

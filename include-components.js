@@ -1,5 +1,10 @@
 // include-components.js
 (() => {
+  /**
+   * Returns inline component markup if available.
+   * @param {string} source - Component path key.
+   * @returns {string|null}
+   */
   function getInlineComponent(source) {
     if (!window.__INLINE_COMPONENTS) {
       return null;
@@ -7,6 +12,11 @@
     return window.__INLINE_COMPONENTS[source] || null;
   }
 
+  /**
+   * Loads component markup from inline map (file://) or fetch (http/https).
+   * @param {string} source - Component path.
+   * @returns {Promise<string>}
+   */
   async function loadComponentMarkup(source) {
     const isFileProtocol = window.location.protocol === 'file:';
     const inlineMarkup = getInlineComponent(source);
@@ -22,6 +32,11 @@
     return response.text();
   }
 
+  /**
+   * Resolves all `data-include` nodes and replaces them with component markup.
+   * Dispatches `site:components-loaded` when complete.
+   * @returns {Promise<void>}
+   */
   async function loadComponents() {
     const includes = Array.from(document.querySelectorAll('[data-include]'));
 

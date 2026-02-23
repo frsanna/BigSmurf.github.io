@@ -1,3 +1,4 @@
+/** @type {Array<{domain: string, selectors: string[], bodyClasses: string[]}>} */
 const DEFAULT_RULES = [
   { domain: "libero.it", selectors: ["#adbModal", ".adb-modal"], bodyClasses: ["adb-lock"] },
   { domain: "ilfattoquotidiano.it", selectors: [".qc-cmp2-container", ".blocco-adv"], bodyClasses: ["no-scroll"] },
