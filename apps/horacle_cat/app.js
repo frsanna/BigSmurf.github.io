@@ -98,6 +98,7 @@ const question = document.getElementById("question");
 const questionTip = document.getElementById("question-tip");
 const refreshBtn = document.getElementById("refresh");
 const randomQuestionBtn = document.getElementById("random-q");
+const resultContainer = document.querySelector(".result");
 
 /**
  * Picks a random element from a list.
@@ -120,9 +121,8 @@ function animateMissingQuestion() {
 }
 
 /**
- * Ensures a question exists before producing a verdict.
- * If empty, injects a random funny question and notifies the user.
- * @returns {boolean} `true` if a question was already present, otherwise `false`.
+ * Validates that the question field is not empty.
+ * @returns {boolean} `true` when question contains text, otherwise `false`.
  */
 function ensureQuestionBeforeVerdict() {
   if (question.value.trim()) {
@@ -130,9 +130,9 @@ function ensureQuestionBeforeVerdict() {
   }
 
   animateMissingQuestion();
-  question.value = pick(funnyLifeChangerQuestions);
   question.focus();
-  questionTip.textContent = "No question detected. Horacle auto-generated one. You are welcome.";
+  questionTip.textContent = "Please ask a question first.";
+  resultContainer.classList.add("result-hidden");
   return false;
 }
 
@@ -155,10 +155,10 @@ function showHoracleCat() {
  */
 function requestVerdict() {
   if (!ensureQuestionBeforeVerdict()) {
-    setTimeout(showHoracleCat, 320);
     return;
   }
 
+  resultContainer.classList.remove("result-hidden");
   questionTip.textContent = "";
   showHoracleCat();
 }
@@ -171,6 +171,7 @@ function fillRandomQuestion() {
   question.classList.remove("prompt-empty");
   question.value = pick(funnyLifeChangerQuestions);
   questionTip.textContent = "Random life-changing question loaded.";
+  resultContainer.classList.add("result-hidden");
   question.focus();
 }
 
@@ -183,7 +184,10 @@ question.addEventListener("keydown", (event) => {
 });
 question.addEventListener("input", () => {
   question.classList.remove("prompt-empty");
-  questionTip.textContent = "";
+  if (!question.value.trim()) {
+    questionTip.textContent = "";
+    resultContainer.classList.add("result-hidden");
+  }
 });
 
-showHoracleCat();
+resultContainer.classList.add("result-hidden");

@@ -94,6 +94,10 @@ h1 {
   gap: .8rem;
 }
 
+.result-hidden {
+  display: none;
+}
+
 #cat-img {
   width: 100%;
   height: min(56vh, 420px);
