@@ -1,0 +1,113 @@
+.section-contact {
+  position: relative;
+  padding: 84px 40px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top left, rgba(198, 146, 77, 0.16), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(95, 116, 130, 0.1), transparent 24%),
+    linear-gradient(135deg, #f2ece4 0%, #ffffff 42%, #edf1f2 100%);
+  box-shadow: 0 34px 82px rgba(89, 104, 117, 0.1);
+}
+
+.contact-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.contact-heading .section-intro {
+  max-width: 40ch;
+}
+
+.contact-cta-panel {
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 146, 77, 0.28), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(145deg, #2a3944 0%, #435969 58%, #6f7f71 100%);
+  color: #fffdf9;
+  box-shadow: 0 28px 64px rgba(56, 74, 86, 0.18);
+}
+
+.contact-badge {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 249, 242, 0.84);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.contact-cta-panel strong {
+  display: block;
+  margin-top: 16px;
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.contact-cta-panel p {
+  margin: 14px 0 0;
+  color: rgba(255, 249, 242, 0.78);
+  line-height: 1.8;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.contact-cta-panel .btn-primary {
+  background: linear-gradient(135deg, #e9c38f 0%, #d5a368 100%);
+  color: #1f252d;
+  box-shadow: 0 14px 28px rgba(213, 163, 104, 0.22);
+}
+
+.contact-cta-panel .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fffdf9;
+}
+
+.contact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.contact-strip div {
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 23, 17, 0.08);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.contact-strip span,
+.contact-strip strong {
+  display: block;
+}
+
+.contact-strip span {
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.contact-strip strong {
+  font-size: 1rem;
+}
+
+.mobile-dock {
+  display: none;
+}

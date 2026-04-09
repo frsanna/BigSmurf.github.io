@@ -29,7 +29,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dist/styles.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,18 +54,35 @@
 </head>
 <body>
   <div class="site-shell">
-    <header class="topbar">
+    <header class="topbar" data-header>
       <a class="brand" href="#home" aria-label="Vai in cima alla pagina">
         <img src="assets/logo-ib-bagni.jpg" alt="Logo IB Bagni Ceramiche">
         <span>IB Bagni Ceramiche</span>
       </a>
-      <nav class="topnav" aria-label="Navigazione principale">
-        <a href="#collezione">Collezione</a>
-        <a href="#showroom">Showroom</a>
-        <a href="#galleria">Galleria</a>
-        <a href="#ispirazioni">Ispirazioni</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Apri il menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-panel" id="site-menu">
+        <nav class="topnav" aria-label="Navigazione principale">
+          <a href="#collezione">Collezione</a>
+          <a href="#showroom">Showroom</a>
+          <a href="#galleria">Galleria</a>
+          <a href="#ispirazioni">Ispirazioni</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-secondary" href="tel:+390784294074">Chiama</a>
+          <a class="btn btn-primary" href="#contatti">Prenota visita</a>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -88,6 +105,16 @@
             >
               Guarda Instagram
             </a>
+          </div>
+          <div class="hero-signals">
+            <div>
+              <strong>Showroom a Pratosardo</strong>
+              <span>Materiali, docce, sanitari e arredo bagno da vedere dal vivo</span>
+            </div>
+            <div>
+              <strong>Scelta guidata</strong>
+              <span>Accostamenti, finiture e soluzioni pensate per convincere subito</span>
+            </div>
           </div>
           <ul class="hero-points">
             <li>Pavimenti, rivestimenti, sanitari, docce e arredo bagno</li>
@@ -138,7 +165,7 @@
         </div>
       </section>
 
-      <section class="section" id="collezione">
+      <section class="section section-catalog" id="collezione">
         <div class="section-heading" data-reveal>
           <p class="eyebrow">Collezione</p>
           <h2>Tutto ciò che serve per costruire un bagno coerente.</h2>
@@ -147,31 +174,10 @@
             a definire comfort, carattere e continuità visiva dell’ambiente.
           </p>
         </div>
-        <div class="grid categories">
-          <article class="card" data-reveal>
-            <i class="fa-solid fa-border-all"></i>
-            <h3>Mattonelle e rivestimenti</h3>
-            <p>Soluzioni per pareti e pavimenti capaci di definire subito il tono dell’ambiente.</p>
-          </article>
-          <article class="card" data-reveal>
-            <i class="fa-solid fa-sink"></i>
-            <h3>Sanitari e lavabi</h3>
-            <p>Linee pulite, proporzioni giuste e modelli adatti sia a bagni compatti sia a spazi più ampi.</p>
-          </article>
-          <article class="card" data-reveal>
-            <i class="fa-solid fa-shower"></i>
-            <h3>Docce e piatti doccia</h3>
-            <p>Piatti, chiusure e configurazioni che uniscono praticità quotidiana e pulizia estetica.</p>
-          </article>
-          <article class="card" data-reveal>
-            <i class="fa-solid fa-compass-drafting"></i>
-            <h3>Supporto alla scelta</h3>
-            <p>Un confronto concreto su materiali, colori e abbinamenti per costruire un bagno coerente.</p>
-          </article>
-        </div>
+        <div class="grid cards-grid cards-grid-catalog" id="catalog-cards"></div>
       </section>
 
-      <section class="section showroom" id="showroom">
+      <section class="section showroom section-dark" id="showroom">
         <div class="section-heading" data-reveal>
           <p class="eyebrow">Showroom</p>
           <h2>Un’esperienza più vicina alla scelta giusta, meno simile a un catalogo.</h2>
@@ -228,20 +234,20 @@
           <p class="eyebrow">Galleria</p>
           <h2>Prodotti, dettagli e ambienti che raccontano lo stile del negozio.</h2>
           <p class="section-intro">
-            La galleria mostra contenuti reali del profilo Instagram. Se il feed non fosse
-            disponibile, il sito continua comunque a presentare immagini curate e pronte a sostenere il contatto.
+            Contenuti reali del profilo, selezionati per mostrare atmosfera, materiali e dettagli.
+            Se il feed non fosse disponibile, il sito resta comunque pieno, curato e pronto a invitare alla visita.
           </p>
         </div>
         <div class="gallery-layout" id="instagram-gallery" aria-live="polite"></div>
       </section>
 
-      <section class="section inspirations" id="ispirazioni">
+      <section class="section inspirations section-warm" id="ispirazioni">
         <div class="section-heading" data-reveal>
           <p class="eyebrow">Ispirazioni</p>
-          <h2>Tre direzioni estetiche per interpretare il bagno con carattere e misura.</h2>
+          <h2>Alcune direzioni estetiche per immaginare il bagno, da adattare al tuo gusto e al tuo spazio.</h2>
           <p class="section-intro">
-            Ogni casa richiede un equilibrio diverso. Queste atmosfere aiutano a orientare la scelta
-            tra calore materico, contrasti più decisi e pulizia formale.
+            Ogni casa richiede un equilibrio diverso. Queste atmosfere sono solo un punto di partenza:
+            in showroom si può costruire una soluzione più materica, più essenziale, più elegante o più personale.
           </p>
         </div>
         <div class="mood-grid">
@@ -257,6 +263,10 @@
             <span>Luce pulita</span>
             <h3>Bianco caldo, ceramica piena e proporzioni essenziali</h3>
           </article>
+          <article class="mood mood-custom" data-reveal>
+            <span>Su misura</span>
+            <h3>Ogni progetto può trovare una combinazione unica, costruita intorno ai tuoi desideri</h3>
+          </article>
         </div>
       </section>
 
@@ -265,7 +275,7 @@
           <p class="eyebrow">Aggiornamenti</p>
           <h2>Instagram raccoglie novità, arrivi, dettagli di showroom e immagini dei lavori pubblicati.</h2>
           <p>
-            Un modo semplice per seguire nuovi arrivi, superfici, realizzazioni e ispirazioni direttamente dal profilo.
+            Il profilo raccoglie arrivi, abbinamenti, dettagli di showroom e immagini utili per capire lo stile del negozio.
           </p>
         </div>
         <a
@@ -278,41 +288,45 @@
         </a>
       </section>
 
-      <section class="section contact" id="contatti">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Contatti</p>
-          <h2>Vieni in showroom o chiamaci per iniziare a scegliere con più chiarezza.</h2>
-          <p class="section-intro">
-            Un primo contatto basta per capire da dove partire: superfici, arredo bagno, docce o una soluzione completa.
-          </p>
+      <section class="section contact section-contact" id="contatti">
+        <div class="contact-hero" data-reveal>
+          <div class="contact-heading">
+            <p class="eyebrow">Contatti</p>
+            <h2>Il modo migliore per capire se fa per te e venire a vedere tutto da vicino.</h2>
+            <p class="section-intro">
+              Se stai ristrutturando, costruendo o vuoi semplicemente capire da dove partire,
+              il contatto diretto con lo showroom è il passo più utile.
+            </p>
+          </div>
+          <div class="contact-cta-panel">
+            <span class="contact-badge">Visita in showroom</span>
+            <strong>Nuoro Pratosardo lotto 6</strong>
+            <p>Materiali, finiture e soluzioni da valutare con calma, dal vivo.</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:+390784294074">Chiama ora</a>
+              <a class="btn btn-secondary" href="mailto:ib.bagni.ceramiche@gmail.com">Scrivi una mail</a>
+            </div>
+          </div>
         </div>
-        <div class="contact-grid">
-          <article class="contact-card" data-reveal>
-            <h3>Visita il negozio</h3>
-            <p>Nuoro Pratosardo lotto 6. Vieni in showroom per vedere materiali, finiture e soluzioni da vicino.</p>
-            <a
-              href="https://www.google.it/maps/place/IB.BAGNI+Ceramiche/@40.3230337,9.2667657,866m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12de814f11c22a47:0x5925cd0268fe26f5!8m2!3d40.3230337!4d9.2693406!16s%2Fg%2F1xb0n1v2?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apri in Google Maps
-            </a>
-          </article>
-          <article class="contact-card" data-reveal>
-            <h3>Chiama direttamente</h3>
-            <p>Per disponibilità, informazioni sui prodotti e un primo orientamento sulle soluzioni più adatte.</p>
-            <a href="tel:+390784294074">0784 294074</a>
-          </article>
-          <article class="contact-card" data-reveal>
-            <h3>Mail e Instagram</h3>
-            <p>Per richieste rapide, aggiornamenti visivi e contenuti pubblicati dal negozio.</p>
-            <a href="mailto:ib.bagni.ceramiche@gmail.com">ib.bagni.ceramiche@gmail.com</a>
-          </article>
+        <div class="contact-grid cards-grid cards-grid-contact" id="contact-cards"></div>
+        <div class="contact-strip" data-reveal>
+          <div>
+            <span>Telefono</span>
+            <strong>0784 294074</strong>
+          </div>
+          <div>
+            <span>Instagram</span>
+            <strong>@ib.bagni_ceramiche_nuoro</strong>
+          </div>
+          <div>
+            <span>Posizione</span>
+            <strong>Nuoro Pratosardo lotto 6</strong>
+          </div>
         </div>
       </section>
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <script src="dist/app.js"></script>
 </body>
 </html>

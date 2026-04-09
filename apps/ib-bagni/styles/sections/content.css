@@ -1,0 +1,288 @@
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 22px 40px;
+  align-items: end;
+  margin-bottom: 34px;
+}
+
+.section-heading h2 {
+  max-width: none;
+}
+
+.section-intro {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.intro-band {
+  padding: 28px 34px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 235, 227, 0.82)),
+    rgba(255, 252, 247, 0.62);
+  backdrop-filter: blur(18px);
+}
+
+.intro-band p {
+  margin: 0;
+  max-width: 70ch;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.studio-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  padding: 34px;
+  border-radius: 20px;
+  color: #f8fbfd;
+  background:
+    radial-gradient(circle at top right, rgba(198, 146, 77, 0.24), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.08), transparent 26%),
+    linear-gradient(135deg, #30404c 0%, #4f6676 46%, #76856e 100%);
+  box-shadow: 0 34px 72px rgba(56, 74, 86, 0.18);
+}
+
+.studio-copy p:last-child {
+  margin: 18px 0 0;
+  max-width: 62ch;
+  line-height: 1.8;
+  color: rgba(247, 242, 234, 0.74);
+}
+
+.studio-band .eyebrow {
+  color: rgba(247, 242, 234, 0.68);
+}
+
+.studio-band h2 {
+  max-width: 15ch;
+}
+
+.studio-meta {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 270px;
+}
+
+.studio-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(247, 242, 234, 0.92);
+}
+
+.showroom-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+  gap: 22px;
+}
+
+.section-dark {
+  position: relative;
+  padding: 86px 42px;
+  border-radius: 20px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top right, rgba(198, 146, 77, 0.16), transparent 22%),
+    radial-gradient(circle at left center, rgba(95, 116, 130, 0.1), transparent 24%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 235, 227, 0.88));
+  box-shadow: 0 34px 90px rgba(89, 104, 117, 0.12);
+}
+
+.section-dark .eyebrow,
+.section-dark .section-intro,
+.section-dark p,
+.section-dark .story-kicker {
+  color: var(--muted);
+}
+
+.section-dark .story-card,
+.section-dark .checklist > div {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(24, 32, 40, 0.06);
+  box-shadow: 0 20px 40px rgba(89, 104, 117, 0.08);
+}
+
+.section-dark .checklist > div > span {
+  background: linear-gradient(135deg, rgba(216, 155, 82, 0.18), rgba(69, 97, 109, 0.12));
+  color: var(--ink);
+}
+
+.section-warm {
+  position: relative;
+}
+
+.section-warm::before {
+  content: "";
+  position: absolute;
+  inset: 40px -20px 0 -20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(198, 146, 77, 0.1), rgba(191, 136, 103, 0.12), rgba(95, 116, 130, 0.08));
+  z-index: -1;
+}
+
+.story-card {
+  padding: 34px;
+}
+
+.story-kicker {
+  margin: 0 0 16px;
+  color: var(--amber-deep);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+.checklist {
+  display: grid;
+  gap: 14px;
+}
+
+.checklist > div {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: start;
+  gap: 18px;
+  padding: 24px;
+}
+
+.checklist > div > span {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(212, 141, 34, 0.16), rgba(109, 115, 53, 0.16));
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.checklist h4 {
+  margin: 2px 0 8px;
+  font-size: 1.08rem;
+}
+
+.checklist p {
+  max-width: 30ch;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mood {
+  position: relative;
+  min-height: 360px;
+  padding: 28px;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.mood::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  opacity: 0.95;
+}
+
+.mood::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(18, 17, 15, 0.72));
+}
+
+.mood span,
+.mood h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.mood span {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.mood h3 {
+  margin-top: 190px;
+  max-width: 12ch;
+  font-size: 2rem;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
+}
+
+.mood-stone::before {
+  background:
+    linear-gradient(135deg, rgba(212, 141, 34, 0.24), rgba(109, 115, 53, 0.1)),
+    linear-gradient(40deg, #eee6da 0%, #d7c4ad 24%, #af9d89 52%, #ece2d6 100%);
+}
+
+.mood-charcoal::before {
+  background:
+    linear-gradient(135deg, rgba(212, 141, 34, 0.22), transparent 38%),
+    linear-gradient(45deg, #202121 0%, #3f403d 42%, #989180 100%);
+}
+
+.mood-light::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent),
+    linear-gradient(32deg, #f5f1eb 0%, #ddd6cc 36%, #b7b0a7 100%);
+}
+
+.mood-custom::before {
+  background:
+    linear-gradient(135deg, rgba(69, 97, 109, 0.2), rgba(216, 155, 82, 0.16)),
+    linear-gradient(35deg, #f1f0ec 0%, #dfe6e7 38%, #c7b6a8 100%);
+}
+
+.social-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 34px 36px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 146, 77, 0.14), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(236, 233, 227, 0.88)),
+    rgba(255, 255, 255, 0.85);
+}
+
+.social-strip h2 {
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  max-width: 14ch;
+}
+
+.social-strip p {
+  margin: 14px 0 0;
+  max-width: 38ch;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.social-strip .eyebrow,
+.contact .eyebrow {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,10 @@
+{
+  "name": "ib-bagni-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-site.mjs",
+    "lint": "node tools/lint-site.mjs",
+    "format": "node tools/format-site.mjs"
+  }
+}
