@@ -462,6 +462,23 @@ body.menu-open .menu-toggle span:nth-child(3) {
   gap: 0;
 }
 
+.ride-list__toggle {
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--red-deep);
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ride-list__toggle:hover,
+.ride-list__toggle:focus-visible {
+  color: var(--ink);
+}
+
 .ride-stop {
   display: flex;
   align-items: stretch;
@@ -524,6 +541,21 @@ body.menu-open .menu-toggle span:nth-child(3) {
   margin-top: 6px;
   color: var(--ink-soft);
   line-height: 1.45;
+}
+
+.roadbook-expanded {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.ride-list--expanded {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+}
+
+.ride-list--expanded .ride-stop:nth-child(-n + 2) {
+  border-top-color: rgba(168, 111, 54, 0.14);
 }
 
 .codex-wrap {
@@ -957,6 +989,16 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
   .side-card {
     padding: 18px 0 0;
+  }
+
+  .roadbook-expanded {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .ride-list--expanded {
+    grid-template-columns: 1fr;
+    column-gap: 0;
   }
 
   .ride-list {

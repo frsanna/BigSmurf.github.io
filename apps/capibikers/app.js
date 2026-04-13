@@ -130,9 +130,29 @@
     `;
   }
 
+  function renderRideStops(spots, startIndex = 0) {
+    return spots
+      .map(
+        (spot, index) => `
+          <button class="ride-stop" type="button" data-spot-id="${spot.id}">
+            <span class="ride-stop__index">${String(startIndex + index + 1).padStart(2, "0")}</span>
+            <div class="ride-stop__copy">
+              <strong>${spot.name}</strong>
+              <span>${spot.venue}</span>
+              <small>${spot.address}</small>
+            </div>
+          </button>
+        `,
+      )
+      .join("");
+  }
+
   function renderShell(data) {
     const stats = buildStats(data.spots, data.suggestionCandidates || []);
     const codexEntry = pickCodexEntry(codexEntries);
+    const previewSpots = data.spots.slice(0, 5);
+    const remainingSpots = data.spots.slice(5);
+    const hasExtraSpots = remainingSpots.length > 0;
 
     root.innerHTML = `
       <main class="portal-shell">
@@ -245,24 +265,39 @@
                 </div>
               </div>
               <div class="ride-list" data-ride-list>
-                ${data.spots
-                  .map(
-                    (spot, index) => `
-                      <button class="ride-stop" type="button" data-spot-id="${spot.id}">
-                        <span class="ride-stop__index">${String(index + 1).padStart(2, "0")}</span>
-                        <div class="ride-stop__copy">
-                          <strong>${spot.name}</strong>
-                          <span>${spot.venue}</span>
-                          <small>${spot.address}</small>
-                        </div>
-                      </button>
-                    `,
-                  )
-                  .join("")}
+                ${renderRideStops(previewSpots)}
               </div>
+              ${
+                hasExtraSpots
+                  ? `
+                    <button class="ride-list__toggle" type="button" data-roadbook-toggle aria-expanded="false" aria-controls="roadbook-expanded">
+                      Mostra tutte le tappe
+                    </button>
+                  `
+                  : ""
+              }
             </section>
           </aside>
         </section>
+
+        ${
+          hasExtraSpots
+            ? `
+              <section class="roadbook-expanded" id="roadbook-expanded" data-roadbook-expanded hidden>
+                <div class="section-head">
+                  <div>
+                    <p class="section-head__kicker">Roadbook completo</p>
+                    <h2>Tutte le tappe del branco</h2>
+                  </div>
+                  <p class="section-head__note">Dal sesto checkpoint in poi il branco si prende finalmente tutto lo spazio disponibile.</p>
+                </div>
+                <div class="ride-list ride-list--expanded" data-ride-list>
+                  ${renderRideStops(remainingSpots, 5)}
+                </div>
+              </section>
+            `
+            : ""
+        }
 
         <section class="codex-wrap" id="codex">
           ${renderCodexCard(codexEntry)}
@@ -328,25 +363,50 @@
       });
     }
 
-    root.querySelector("[data-ride-list]").addEventListener("click", (event) => {
-      const button = event.target.closest("[data-spot-id]");
-      if (!(button instanceof HTMLElement)) {
-        return;
-      }
+    root.querySelectorAll("[data-ride-list]").forEach((list) => {
+      list.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-spot-id]");
+        if (!(button instanceof HTMLElement)) {
+          return;
+        }
 
-      const marker = markers.get(button.getAttribute("data-spot-id"));
-      if (!marker) {
-        return;
-      }
+        const marker = markers.get(button.getAttribute("data-spot-id"));
+        if (!marker) {
+          return;
+        }
 
-      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 8), {
-        duration: 0.85,
+        map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 8), {
+          duration: 0.85,
+        });
+        marker.openPopup();
+
+        root.querySelectorAll(".ride-stop").forEach((node) => {
+          node.classList.toggle("is-active", node.dataset.spotId === button.dataset.spotId);
+        });
       });
-      marker.openPopup();
+    });
+  }
 
-      root.querySelectorAll(".ride-stop").forEach((node) => {
-        node.classList.toggle("is-active", node === button);
-      });
+  function initRoadbookToggle() {
+    const toggle = root.querySelector("[data-roadbook-toggle]");
+    const expanded = root.querySelector("[data-roadbook-expanded]");
+
+    if (!toggle || !expanded) {
+      return;
+    }
+
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      toggle.textContent = isExpanded ? "Mostra tutte le tappe" : "Nascondi le tappe extra";
+      expanded.hidden = isExpanded;
+
+      if (!isExpanded) {
+        expanded.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     });
   }
 
@@ -434,6 +494,7 @@
     initHeaderState();
     initMobileMenu();
     buildMap(portalData);
+    initRoadbookToggle();
   }
 
   init();
