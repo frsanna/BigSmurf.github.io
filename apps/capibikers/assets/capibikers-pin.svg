@@ -1,0 +1,20 @@
+<svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pinGradient" x1="24" y1="14" x2="96" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD166"/>
+      <stop offset="0.42" stop-color="#FF8A00"/>
+      <stop offset="1" stop-color="#FF3D00"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 134C60 134 104 90.8462 104 52C104 27.6995 84.3005 8 60 8C35.6995 8 16 27.6995 16 52C16 90.8462 60 134 60 134Z" fill="url(#pinGradient)" stroke="#FFEBC1" stroke-width="6"/>
+  <circle cx="60" cy="52" r="27" fill="#1E120B" stroke="#FFEBC1" stroke-opacity="0.45" stroke-width="4"/>
+  <path d="M40 48C43.5 36.5 50.5 31 60 31C69.5 31 76.5 36.5 80 48" stroke="#FFD166" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M42 49C35.5 46 30.5 40.5 28 34.5" stroke="#FFD166" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 49C84.5 46 89.5 40.5 92 34.5" stroke="#FFD166" stroke-width="5" stroke-linecap="round"/>
+  <path d="M40 54C40 43.5066 48.5066 35 59 35H61C71.4934 35 80 43.5066 80 54V61H40V54Z" fill="#FFD166"/>
+  <path d="M38 61H82V69C82 80.0457 73.0457 89 62 89H58C46.9543 89 38 80.0457 38 69V61Z" fill="#1E120B" stroke="#FFD166" stroke-width="4"/>
+  <path d="M48 71H72" stroke="#FFD166" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M51 80H69" stroke="#FFD166" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="52" cy="64" r="2.6" fill="#1E120B"/>
+  <circle cx="68" cy="64" r="2.6" fill="#1E120B"/>
+</svg>

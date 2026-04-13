@@ -1,0 +1,996 @@
+:root {
+  --bg: #f6e7c7;
+  --paper: rgba(255, 249, 236, 0.9);
+  --paper-strong: rgba(252, 241, 219, 0.96);
+  --ink: #2f2016;
+  --ink-soft: #73563f;
+  --sand: #a86f36;
+  --red: #c43d2d;
+  --red-deep: #8e291f;
+  --sky: #bfe3f2;
+  --mint: #d8edd7;
+  --line: rgba(118, 77, 40, 0.14);
+  --shadow: 0 24px 70px rgba(114, 76, 42, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(191, 227, 242, 0.92), transparent 28%),
+    radial-gradient(circle at 86% 14%, rgba(216, 237, 215, 0.8), transparent 22%),
+    linear-gradient(180deg, #f9edcf 0%, #f6e7c7 55%, #eed6a7 100%);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  background-image: url("./assets/capibikers-logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  filter: saturate(0.9);
+}
+
+body::before {
+  top: 120px;
+  right: -70px;
+  transform: rotate(-10deg);
+}
+
+body::after {
+  left: -90px;
+  bottom: 120px;
+  transform: rotate(12deg);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a,
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.portal-shell {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0 12px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    border-radius 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.site-header.is-sticky {
+  top: 12px;
+  padding: 14px 18px;
+  transform: translateY(0);
+  border-color: rgba(118, 77, 40, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 249, 238, 0.86);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 36px rgba(114, 76, 42, 0.12);
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.site-brand img {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  filter: saturate(1) contrast(1);
+}
+
+.site-brand__copy {
+  display: grid;
+  gap: 4px;
+}
+
+.site-brand__copy strong {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-brand__copy span {
+  color: var(--red-deep);
+  font-style: italic;
+}
+
+.site-nav {
+  gap: 10px;
+}
+
+.site-nav--desktop {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-panel {
+  display: none;
+}
+
+.nav-panel__wash {
+  display: none;
+}
+
+.nav-panel__approved,
+.nav-close,
+.nav-panel__intro,
+.site-nav--mobile {
+  display: none;
+}
+
+.site-nav a,
+.portal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(168, 111, 54, 0.18);
+  background: rgba(255, 255, 255, 0.34);
+  text-decoration: none;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.menu-toggle {
+  display: none;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(168, 111, 54, 0.18);
+  background: rgba(255, 255, 255, 0.44);
+  padding: 0;
+  border-radius: 10px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--ink);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+body.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+body.menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-nav a:hover,
+.portal-button:hover,
+.site-nav a:focus-visible,
+.portal-button:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.portal-button--solid {
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  border-color: transparent;
+  color: #fff7ee;
+}
+
+.hero-stage,
+.map-panel,
+.side-card,
+.codex-card {
+  border-top: 1px solid var(--line);
+  background: none;
+  box-shadow: none;
+}
+
+.hero-stage {
+  display: block;
+  padding: 30px 0 26px;
+  border-radius: 0;
+  position: relative;
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 16%, rgba(196, 61, 45, 0.82) 16% 18%, transparent 18% 47%, rgba(196, 61, 45, 0.82) 47% 49%, transparent 49%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 38%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  right: 4%;
+  top: 12%;
+  width: 220px;
+  height: 220px;
+  background: url("./assets/capibikers-logo.png") no-repeat center / contain;
+  opacity: 0.045;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+.hero-stage__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stage__kicker,
+.section-head__kicker,
+.ribbon-story__label,
+.codex-card__kicker {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.hero-stage h1 {
+  margin: 14px 0 10px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(3.4rem, 8vw, 6.6rem);
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-stage__claim {
+  margin: 0;
+  color: var(--red-deep);
+  font-size: clamp(1.18rem, 3vw, 1.95rem);
+  font-style: italic;
+}
+
+.hero-stage__intro {
+  margin: 18px 0 0;
+  max-width: 72ch;
+  color: var(--ink-soft);
+  line-height: 1.78;
+  font-size: 1.05rem;
+}
+
+.hero-stage__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stats-ribbon {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+  margin-top: 6px;
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--line);
+}
+
+.ribbon-story h2,
+.side-card h3,
+.codex-card h2,
+.section-head h2 {
+  margin: 8px 0 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ribbon-story p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.ribbon-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.ribbon-stats div {
+  border-left: 1px solid var(--line);
+  padding-left: 16px;
+}
+
+.ribbon-stats dt {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.ribbon-stats dd {
+  margin: 8px 0 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2.7rem;
+  color: var(--red-deep);
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.78fr);
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.map-panel,
+.side-card,
+.codex-card {
+  border-radius: 0;
+}
+
+.map-panel {
+  padding: 22px 0 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  font-size: 2.15rem;
+}
+
+.section-head__note,
+.side-card p,
+.codex-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.72;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: min(70vh, 760px);
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(168, 111, 54, 0.18);
+}
+
+.side-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.side-card {
+  padding: 18px 0 0;
+}
+
+.side-card--oracle {
+  background: none;
+}
+
+.side-card__meta {
+  margin: 10px 0 0;
+  color: var(--red-deep);
+  font-weight: 700;
+}
+
+.side-card__footnote {
+  margin-top: 10px !important;
+  font-size: 0.94rem;
+}
+
+.side-card__head {
+  margin-bottom: 14px;
+}
+
+.ride-list {
+  display: grid;
+  gap: 0;
+}
+
+.ride-stop {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 0;
+  border: 0;
+  border-top: 1px solid rgba(168, 111, 54, 0.14);
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+.ride-stop:hover,
+.ride-stop.is-active {
+  transform: none;
+  opacity: 0.78;
+}
+
+.ride-stop__index {
+  flex: 0 0 48px;
+  width: 48px;
+  min-width: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  background: none;
+  color: var(--sand);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.ride-stop__copy {
+  min-width: 0;
+}
+
+.ride-stop strong,
+.ride-stop span,
+.ride-stop small {
+  display: block;
+}
+
+.ride-stop strong {
+  color: var(--red-deep);
+  font-size: 1.08rem;
+}
+
+.ride-stop span {
+  margin-top: 4px;
+}
+
+.ride-stop small {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.codex-wrap {
+  margin-top: 22px;
+}
+
+.codex-card {
+  position: relative;
+  padding: 24px 0 0;
+  overflow: hidden;
+  background: none;
+}
+
+.codex-card::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 160px;
+  height: 160px;
+  background: url("./assets/capibikers-logo.png") no-repeat center / contain;
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+.codex-card h2 {
+  margin-top: 10px;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.capibikers-marker {
+  background: transparent;
+  border: 0;
+}
+
+.capibikers-marker__pin {
+  position: relative;
+  width: 38px;
+  height: 50px;
+}
+
+.capibikers-marker__pin::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  box-shadow: 0 8px 18px rgba(114, 76, 42, 0.24);
+}
+
+.capibikers-marker__badge {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 247, 233, 0.96);
+  background: #fff9ef;
+  z-index: 1;
+}
+
+.capibikers-marker__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.capibikers-popup .leaflet-popup-content-wrapper,
+.capibikers-popup .leaflet-popup-tip {
+  background: #fff8ee;
+  color: var(--ink);
+  box-shadow: 0 18px 40px rgba(114, 76, 42, 0.22);
+  border-radius: 0;
+}
+
+.capibikers-popup .leaflet-popup-content {
+  margin: 0;
+  width: 300px !important;
+}
+
+.leaflet-popup-card {
+  overflow: hidden;
+}
+
+.leaflet-popup__image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.leaflet-popup__body {
+  padding: 16px;
+}
+
+.leaflet-popup__eyebrow {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.leaflet-popup-card h3 {
+  margin: 8px 0 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.leaflet-popup__venue {
+  margin: 8px 0 0;
+  color: var(--red-deep);
+  font-weight: 700;
+}
+
+.leaflet-popup__copy,
+.leaflet-popup__address {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.leaflet-popup__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.popup-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff7ee;
+  text-decoration: none;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 700;
+}
+
+.popup-link--ghost {
+  background: rgba(255, 255, 255, 0.48);
+  color: var(--ink);
+  border: 1px solid rgba(168, 111, 54, 0.16);
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 248, 235, 0.94) !important;
+  color: var(--ink-soft) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--red-deep) !important;
+}
+
+@media (max-width: 1120px) {
+  .stats-ribbon,
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
+  .portal-shell {
+    width: min(100% - 22px, 100%);
+    padding-top: 10px;
+    padding-bottom: 28px;
+  }
+
+  body::before,
+  body::after {
+    width: 180px;
+    height: 180px;
+    opacity: 0.024;
+  }
+
+  .site-header {
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0 10px;
+  }
+
+  .site-header.is-sticky {
+    top: 8px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255, 249, 238, 0.9);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 16px 30px rgba(114, 76, 42, 0.1);
+  }
+
+  .site-brand {
+    min-width: 0;
+    align-items: center;
+  }
+
+  .site-brand img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .site-brand__copy strong {
+    font-size: 1.65rem;
+  }
+
+  .site-nav--desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-panel {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    padding: 22px 18px 28px;
+    background:
+      radial-gradient(circle at top right, rgba(196, 61, 45, 0.12), transparent 24%),
+      radial-gradient(circle at top left, rgba(191, 227, 242, 0.22), transparent 20%),
+      linear-gradient(180deg, #fbf3df 0%, #f0d9aa 100%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    overflow-y: auto;
+    transition:
+      opacity 0.18s ease,
+      visibility 0.18s ease;
+    z-index: 7000;
+  }
+
+  body.menu-open .nav-panel {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .nav-close {
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
+    display: grid;
+    place-items: center;
+    margin: 0 2px 20px 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(168, 111, 54, 0.18);
+    border-radius: 14px;
+    background: rgba(255, 249, 238, 0.96);
+    color: var(--ink);
+    font-size: 1.6rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px rgba(114, 76, 42, 0.14);
+    z-index: 4;
+  }
+
+  body.menu-open .site-header {
+    top: 8px;
+    padding: 12px 14px;
+    border-color: rgba(118, 77, 40, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 249, 238, 0.9);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 16px 30px rgba(114, 76, 42, 0.1);
+  }
+
+  .nav-panel__wash {
+    position: absolute;
+    right: -10px;
+    top: 26px;
+    display: block;
+    width: 180px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  .nav-panel__approved {
+    position: absolute;
+    right: -54px;
+    bottom: -18px;
+    width: 220px;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  .nav-panel__approved img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .nav-panel__intro {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding: 22px 20px 18px;
+    margin: 2px 0 18px;
+    background:
+      linear-gradient(180deg, rgba(255, 250, 240, 0.98), rgba(246, 230, 195, 0.96));
+    border: 1px solid rgba(168, 111, 54, 0.14);
+    box-shadow: 0 22px 42px rgba(114, 76, 42, 0.12);
+  }
+
+  .nav-panel__eyebrow {
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sand);
+  }
+
+  .nav-panel__intro h2 {
+    margin: 8px 0 0;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-panel__intro p:last-child {
+    margin-top: 10px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .site-nav {
+    gap: 14px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding: 0 0 18px;
+  }
+
+  .site-nav--mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav a {
+    width: 100%;
+    min-height: 64px;
+    justify-content: flex-start;
+    padding: 0 20px;
+    font-size: 1rem;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 247, 232, 0.98));
+    box-shadow: 0 14px 28px rgba(114, 76, 42, 0.09);
+    border-color: rgba(168, 111, 54, 0.15);
+  }
+
+  .hero-stage,
+  .map-panel,
+  .side-card,
+  .codex-card {
+    border-radius: 0;
+  }
+
+  .hero-stage {
+    padding: 20px 0 22px;
+  }
+
+  .hero-stage h1 {
+    font-size: clamp(2.7rem, 16vw, 4.3rem);
+  }
+
+  .hero-stage__intro {
+    font-size: 1rem;
+    line-height: 1.68;
+    padding-right: 16px;
+  }
+
+  .hero-stage__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .portal-button {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    text-align: center;
+  }
+
+  .stats-ribbon {
+    gap: 12px;
+    margin-top: 16px;
+    padding: 14px 0 18px;
+  }
+
+  .ribbon-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .ribbon-stats div {
+    padding-left: 10px;
+  }
+
+  .ribbon-stats dd {
+    font-size: 2.1rem;
+  }
+
+  .map-panel {
+    padding: 14px 0 0;
+  }
+
+  .leaflet-map {
+    height: 52vh;
+    min-height: 360px;
+    border-radius: 0;
+  }
+
+  .side-card {
+    padding: 18px 0 0;
+  }
+
+  .ride-list {
+    gap: 9px;
+  }
+
+  .ride-stop {
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .ride-stop__index {
+    flex-basis: 42px;
+    width: 42px;
+    min-width: 42px;
+    font-size: 1.45rem;
+  }
+
+  .ride-stop strong {
+    font-size: 1rem;
+  }
+
+  .ride-stop small {
+    font-size: 0.88rem;
+  }
+
+  .codex-card {
+    padding: 20px 0 0;
+  }
+
+  .hero-stage::after,
+  .codex-card::before {
+    width: 120px;
+    height: 120px;
+    opacity: 0.03;
+  }
+}
