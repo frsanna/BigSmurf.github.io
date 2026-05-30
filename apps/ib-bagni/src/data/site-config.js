@@ -38,7 +38,7 @@ export const siteConfig = {
       title: "Mattonelle e rivestimenti",
       description:
         "Collezioni per pareti e pavimenti capaci di impostare subito atmosfera, proporzioni e carattere del bagno.",
-      accent: "#c6924d"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-sink",
@@ -46,7 +46,7 @@ export const siteConfig = {
       title: "Sanitari e lavabi",
       description:
         "Elementi essenziali scelti per lavorare bene sia in spazi raccolti sia in ambienti piu ampi e scenografici.",
-      accent: "#5f7482"
+      accent: "#8a8986"
     },
     {
       icon: "fa-solid fa-shower",
@@ -54,7 +54,7 @@ export const siteConfig = {
       title: "Docce e piatti doccia",
       description:
         "Configurazioni pulite, pratiche e contemporanee per costruire una zona doccia bella da vedere e comoda da vivere.",
-      accent: "#7d8770"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-compass-drafting",
@@ -62,7 +62,7 @@ export const siteConfig = {
       title: "Abbinamenti e orientamento",
       description:
         "Supporto nella scelta di materiali, tonalita e finiture per dare continuita visiva a tutto l'ambiente.",
-      accent: "#bf8867"
+      accent: "#c2bdb7"
     },
     {
       icon: "fa-solid fa-plus",
@@ -70,7 +70,7 @@ export const siteConfig = {
       title: "Molto altro da scoprire",
       description:
         "Complementi, dettagli coordinati e soluzioni da valutare dal vivo per trovare la combinazione giusta per ogni progetto.",
-      accent: "#8f6f5a"
+      accent: "#706e6b"
     }
   ],
   contactCards: [
@@ -84,7 +84,7 @@ export const siteConfig = {
         "https://www.google.it/maps/place/IB.BAGNI+Ceramiche/@40.3230337,9.2667657,866m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12de814f11c22a47:0x5925cd0268fe26f5!8m2!3d40.3230337!4d9.2693406!16s%2Fg%2F1xb0n1v2?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D",
       label: "Apri in Google Maps",
       external: true,
-      accent: "#c6924d"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-phone-volume",
@@ -94,7 +94,7 @@ export const siteConfig = {
         "Per disponibilita, primi consigli e un orientamento rapido sulle soluzioni piu adatte al tuo bagno.",
       href: "tel:+390784294074",
       label: "0784 294074",
-      accent: "#5f7482"
+      accent: "#8a8986"
     },
     {
       icon: "fa-solid fa-envelope-open-text",
@@ -104,7 +104,7 @@ export const siteConfig = {
         "Per richieste veloci, aggiornamenti visivi e un primo contatto prima della visita in showroom.",
       href: "mailto:ib.bagni.ceramiche@gmail.com",
       label: "ib.bagni.ceramiche@gmail.com",
-      accent: "#7d8770"
+      accent: "#9b9690"
     }
   ],
   fallbackGalleryItems: [

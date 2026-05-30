@@ -38,7 +38,7 @@ const siteConfig = {
       title: "Mattonelle e rivestimenti",
       description:
         "Collezioni per pareti e pavimenti capaci di impostare subito atmosfera, proporzioni e carattere del bagno.",
-      accent: "#c6924d"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-sink",
@@ -46,7 +46,7 @@ const siteConfig = {
       title: "Sanitari e lavabi",
       description:
         "Elementi essenziali scelti per lavorare bene sia in spazi raccolti sia in ambienti piu ampi e scenografici.",
-      accent: "#5f7482"
+      accent: "#8a8986"
     },
     {
       icon: "fa-solid fa-shower",
@@ -54,7 +54,7 @@ const siteConfig = {
       title: "Docce e piatti doccia",
       description:
         "Configurazioni pulite, pratiche e contemporanee per costruire una zona doccia bella da vedere e comoda da vivere.",
-      accent: "#7d8770"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-compass-drafting",
@@ -62,7 +62,7 @@ const siteConfig = {
       title: "Abbinamenti e orientamento",
       description:
         "Supporto nella scelta di materiali, tonalita e finiture per dare continuita visiva a tutto l'ambiente.",
-      accent: "#bf8867"
+      accent: "#c2bdb7"
     },
     {
       icon: "fa-solid fa-plus",
@@ -70,7 +70,7 @@ const siteConfig = {
       title: "Molto altro da scoprire",
       description:
         "Complementi, dettagli coordinati e soluzioni da valutare dal vivo per trovare la combinazione giusta per ogni progetto.",
-      accent: "#8f6f5a"
+      accent: "#706e6b"
     }
   ],
   contactCards: [
@@ -84,7 +84,7 @@ const siteConfig = {
         "https://www.google.it/maps/place/IB.BAGNI+Ceramiche/@40.3230337,9.2667657,866m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12de814f11c22a47:0x5925cd0268fe26f5!8m2!3d40.3230337!4d9.2693406!16s%2Fg%2F1xb0n1v2?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D",
       label: "Apri in Google Maps",
       external: true,
-      accent: "#c6924d"
+      accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-phone-volume",
@@ -94,7 +94,7 @@ const siteConfig = {
         "Per disponibilita, primi consigli e un orientamento rapido sulle soluzioni piu adatte al tuo bagno.",
       href: "tel:+390784294074",
       label: "0784 294074",
-      accent: "#5f7482"
+      accent: "#8a8986"
     },
     {
       icon: "fa-solid fa-envelope-open-text",
@@ -104,7 +104,7 @@ const siteConfig = {
         "Per richieste veloci, aggiornamenti visivi e un primo contatto prima della visita in showroom.",
       href: "mailto:ib.bagni.ceramiche@gmail.com",
       label: "ib.bagni.ceramiche@gmail.com",
-      accent: "#7d8770"
+      accent: "#9b9690"
     }
   ],
   fallbackGalleryItems: [
@@ -348,7 +348,49 @@ function observeRevealItems(scope = document) {
 }
 
 /**
- * Toggle sticky header styles once the visitor starts scrolling.
+ * Subtle scroll-driven parallax for decorative elements.
+ *
+ * Usage: add `data-parallax` (defaults to speed 0.32) or
+ * `data-parallax="0.5"` for a custom multiplier.
+ * Elements translate vertically at (scrollY - sectionTop) * speed.
+ *
+ * Automatically disabled for `prefers-reduced-motion: reduce`.
+ *
+ * @returns {void}
+ */
+function initParallax() {
+  const items = document.querySelectorAll("[data-parallax]");
+
+  if (!items.length) {
+    return;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  function tick() {
+    const scrollY = window.scrollY;
+
+    items.forEach((el) => {
+      const section = el.closest("section") || el.parentElement;
+      const speed = parseFloat(el.dataset.parallax) || 0.32;
+      const offset = (scrollY - section.offsetTop) * speed;
+      el.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+  }
+
+  window.addEventListener("scroll", tick, { passive: true });
+  window.addEventListener("resize", tick, { passive: true });
+  tick();
+}
+
+/**
+ * Reveal the floating pill header once the user has scrolled
+ * past ~65 % of the hero section height.
+ *
+ * The header starts with opacity 0 / pointer-events none (CSS default)
+ * and receives the "is-visible" class when the threshold is crossed.
  *
  * @returns {void}
  */
@@ -359,12 +401,18 @@ function initHeaderState() {
     return;
   }
 
+  const hero = document.querySelector(".hero");
+
+  const getThreshold = () =>
+    hero ? hero.offsetHeight * 0.65 : window.innerHeight * 0.65;
+
   const syncHeader = () => {
-    header.classList.toggle("is-sticky", window.scrollY > 24);
+    header.classList.toggle("is-visible", window.scrollY > getThreshold());
   };
 
   syncHeader();
   window.addEventListener("scroll", syncHeader, { passive: true });
+  window.addEventListener("resize", syncHeader, { passive: true });
 }
 
 /**
@@ -494,6 +542,7 @@ async function initSite() {
   observeRevealItems();
   initHeaderState();
   initMobileMenu();
+  initParallax();
   await initInstagramGallery();
 }
 

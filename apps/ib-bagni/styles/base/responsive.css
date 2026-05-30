@@ -1,5 +1,5 @@
+/* ── Tablet (≤ 1120px) ───────────────────────────────────────── */
 @media (max-width: 1120px) {
-  .hero,
   .showroom-layout,
   .studio-band,
   .contact-hero,
@@ -18,26 +18,9 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .hero {
-    min-height: auto;
-    padding-top: 56px;
-  }
-
-  .hero-stage {
-    min-height: 520px;
-  }
-
-  .main-card {
-    right: 40px;
-  }
-
-  .accent-card {
-    right: 72px;
-  }
-
   .section-dark,
   .section-contact {
-    padding: 64px 28px;
+    padding: 64px 32px;
   }
 
   .gallery-card-xl,
@@ -45,44 +28,36 @@
     grid-column: auto;
     grid-row: auto;
   }
+
+  .contact-hours {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 28px;
+  }
 }
 
+/* ── Mobile (≤ 760px) ────────────────────────────────────────── */
 @media (max-width: 760px) {
   .site-shell {
     width: min(calc(100% - 20px), 1400px);
     margin: 10px auto 28px;
   }
 
+  /* ── Header mobile — pill più stretto ─────────────────────── */
   .topbar {
-    position: relative;
-    top: auto;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    border-radius: 0;
-    padding: 14px 0 8px;
-    background: transparent;
-    backdrop-filter: none;
-    box-shadow: none;
-    border: 1px solid transparent;
+    width: min(calc(100% - 24px), 560px);
+    padding: 10px 14px;
+    border-radius: 999px;
   }
 
-  .topbar.is-sticky,
-  body.menu-open .topbar {
-    position: sticky;
-    top: 8px;
-    padding: 12px 14px;
-    border-color: var(--line);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(18px);
-    box-shadow: 0 16px 30px rgba(59, 70, 83, 0.1);
+  .topbar.is-visible {
+    transform: translateX(-50%) translateY(12px);
   }
 
   .brand {
     justify-content: flex-start;
     flex: 1 1 auto;
-    font-size: 0.98rem;
+    font-size: 0.9rem;
   }
 
   .menu-toggle {
@@ -90,19 +65,21 @@
   }
 
   .nav-panel {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(calc(100% - 24px), 400px);
     display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 14px;
+    gap: 12px;
     padding: 18px;
-    border: 1px solid rgba(24, 32, 40, 0.08);
-    border-radius: 16px;
+    border: 1px solid rgba(17, 17, 16, 0.08);
+    border-radius: 20px;
     background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 24px 54px rgba(59, 70, 83, 0.12);
+    box-shadow: 0 24px 54px rgba(17, 17, 16, 0.14);
+    backdrop-filter: blur(20px);
   }
 
   body.menu-open .nav-panel {
@@ -111,20 +88,17 @@
 
   .topnav {
     display: grid;
-    gap: 10px;
+    gap: 6px;
   }
 
   .topnav a {
-    padding: 14px 16px;
+    padding: 13px 16px;
     border-radius: 12px;
-    border: 1px solid rgba(24, 32, 40, 0.06);
-    background: rgba(246, 242, 236, 0.86);
-    font-size: 0.95rem;
+    border: 1px solid rgba(17, 17, 16, 0.06);
+    background: rgba(246, 246, 244, 0.88);
+    font-size: 0.92rem;
     font-weight: 700;
-  }
-
-  .topnav a::after {
-    display: none;
+    color: var(--ink);
   }
 
   .nav-cta {
@@ -133,103 +107,45 @@
     gap: 10px;
   }
 
+  /* Nav buttons in mobile panel — pill style reduced */
+  .nav-cta .btn {
+    border-radius: 12px;
+    font-size: 0.88rem;
+  }
+
+  /* ── Hero full-screen ──────────────────────────────────────── */
   .hero h1 {
-    font-size: clamp(2.7rem, 10.5vw, 3.7rem);
-    line-height: 1.01;
-    max-width: 9ch;
+    font-size: clamp(2.6rem, 10.5vw, 4rem);
+    line-height: 0.96;
   }
 
-  .lead,
-  .hero-points li,
-  .section-intro,
-  .intro-band p,
-  .social-strip p {
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .hero {
-    gap: 26px;
-    padding: 34px 0 26px;
-  }
-
-  .hero::before,
-  .hero::after {
-    display: none;
-  }
-
-  .hero-stage {
-    position: static;
-    min-height: auto;
-    display: grid;
-    gap: 16px;
-  }
-
-  .stage-card {
-    position: relative;
-    inset: auto;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    width: auto;
-    min-height: 180px;
-    border-radius: 18px;
-  }
-
-  .main-card,
-  .tall-card,
-  .accent-card {
-    inset: auto;
-    right: auto;
-    left: auto;
-    top: auto;
-    bottom: auto;
-    width: auto;
-    min-height: 198px;
-    padding: 22px 20px;
-  }
-
-  .tall-card {
-    height: auto;
-    min-height: 160px;
-    color: #fff;
-    background:
-      linear-gradient(180deg, rgba(18, 16, 15, 0.18), rgba(18, 16, 15, 0.72)),
-      url("../../assets/gallery/post-6.jpg") center/cover no-repeat;
-  }
-
-  .hero-signals {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .hero-signals div {
-    padding: 18px 16px;
-    border-radius: 14px;
+  .hero-inner {
+    padding: 0 20px;
+    text-align: center;
   }
 
   .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .hero-actions .btn {
     width: 100%;
+    justify-content: center;
   }
 
-  .hero-points {
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .hero-points li {
-    align-items: flex-start;
-    font-size: 0.94rem;
+  /* ── Sections ──────────────────────────────────────────────── */
+  .lead,
+  .section-intro,
+  .intro-band p,
+  .social-strip p {
+    font-size: 0.98rem;
+    line-height: 1.82;
   }
 
   .section {
-    padding: 58px 0;
+    padding: 60px 0;
   }
 
   .section-heading {
@@ -239,40 +155,42 @@
 
   .section-dark,
   .section-contact {
-    padding: 36px 18px;
+    padding: 40px 20px;
     border-radius: 18px;
   }
 
   .studio-band,
   .intro-band,
   .social-strip {
-    padding: 24px 18px;
+    padding: 26px 20px;
     border-radius: 16px;
   }
 
   .social-strip {
     align-items: flex-start;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
   }
 
+  /* ── Gallery ───────────────────────────────────────────────── */
   .gallery-copy {
     inset: auto 16px 16px 16px;
   }
 
   .gallery-copy strong {
-    font-size: 1.08rem;
-    max-width: 20ch;
+    font-size: 1.1rem;
+    max-width: 22ch;
   }
 
   .gallery-layout {
-    gap: 16px;
-    grid-auto-rows: 220px;
+    gap: 14px;
+    grid-auto-rows: 210px;
   }
 
+  /* ── Cards ─────────────────────────────────────────────────── */
   .info-card,
   .story-card {
-    padding: 24px 18px;
+    padding: 24px 20px;
     border-radius: 16px;
   }
 
@@ -286,51 +204,98 @@
   }
 
   .info-card__icon {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
   }
 
+  /* ── Contact ───────────────────────────────────────────────── */
   .contact-cta-panel {
-    padding: 24px 20px;
+    padding: 26px 22px;
     border-radius: 16px;
   }
 
   .contact-cta-panel strong {
-    font-size: 1.52rem;
+    font-size: 1.7rem;
   }
 
   .contact-actions {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .contact-actions .btn {
     width: 100%;
   }
 
+  .contact-hours {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .contact-hours-label h3 {
+    font-size: 1.5rem;
+  }
+
+  .hours-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+
+  .contact-map {
+    border-radius: 16px;
+  }
+
+  .contact-map iframe {
+    height: 280px;
+  }
+
+  .contact-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .contact-strip div {
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  /* ── Checklist ─────────────────────────────────────────────── */
   .checklist > div {
-    grid-template-columns: 52px 1fr;
+    grid-template-columns: 50px 1fr;
     gap: 14px;
     padding: 20px 18px;
     border-radius: 16px;
   }
 
   .checklist > div > span {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-  }
-
-  .contact-strip div {
-    padding: 22px 18px;
-  }
-
-  .contact-strip {
-    gap: 12px;
-  }
-
-  .contact-strip div {
+    width: 50px;
+    height: 50px;
     border-radius: 14px;
-    padding: 18px;
+    font-size: 0.86rem;
+  }
+
+  /* ── Mood grid ─────────────────────────────────────────────── */
+  .mood-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mood {
+    min-height: 300px;
+  }
+
+  .mood h3 {
+    margin-top: 140px;
+    font-size: 1.7rem;
+  }
+}
+
+/* ── Small mobile (≤ 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .mood-grid {
+    grid-template-columns: 1fr;
   }
 }

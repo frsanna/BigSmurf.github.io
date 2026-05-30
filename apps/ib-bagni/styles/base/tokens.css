@@ -1,19 +1,45 @@
 :root {
-  --bg: #f5f1ea;
-  --bg-strong: #ebe4d8;
-  --surface: rgba(255, 255, 255, 0.8);
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  --bg: #ffffff;               /* bianco puro */
+  --bg-warm: #faf7f2;          /* avorio caldo */
+  --bg-sand: #f0ede8;          /* sabbia */
+  --bg-obsidian: #0a0a09;      /* ossidiana */
+  --bg-strong: #f0ede8;
+  --surface: rgba(255, 255, 255, 0.94);
   --surface-strong: #ffffff;
-  --ink: #1b252d;
-  --muted: #64737c;
-  --line: rgba(27, 37, 45, 0.09);
-  --amber: #c6924d;
-  --amber-deep: #996530;
-  --copper: #bf8867;
-  --clay: #d4b197;
-  --olive: #7d8770;
-  --charcoal: #22303b;
-  --teal: #5f7482;
-  --shadow: 0 28px 72px rgba(68, 81, 94, 0.12);
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --ink: #0a0a09;
+  --ink-light: #f8f6f0;        /* testo su sezioni scure */
+  --muted: #6e6c68;
+  --muted-dark: rgba(248, 246, 240, 0.58);  /* muted su ossidiana */
+  --line: rgba(10, 10, 9, 0.08);
+  --line-dark: rgba(255, 255, 255, 0.09);   /* bordi su ossidiana */
+
+  /* ── Oro Antico — unico accento colore ───────────────────── */
+  --gold: #b8924a;
+  --gold-light: #d4b87a;
+  --gold-deep: #8a6a30;
+  --gold-glow: rgba(184, 146, 74, 0.16);
+
+  /* ── Alias retrocompatibili ──────────────────────────────── */
+  --amber: #b8924a;
+  --amber-deep: #8a6a30;
+  --copper: #d4b87a;
+  --clay: #e8e0d0;
+  --olive: #6e6c68;
+  --charcoal: #0a0a09;
+  --teal: #6e6c68;
+  --platinum: #b8924a;
+  --platinum-light: #d4b87a;
+  --platinum-pale: rgba(184, 146, 74, 0.12);
+
+  /* ── Elevation ───────────────────────────────────────────── */
+  --shadow: 0 28px 72px rgba(10, 10, 9, 0.1);
+  --shadow-strong: 0 40px 100px rgba(10, 10, 9, 0.2);
+  --shadow-gold: 0 4px 24px rgba(184, 146, 74, 0.2);
+
+  /* ── Geometry ────────────────────────────────────────────── */
   --radius: 18px;
   --max: 1240px;
 }

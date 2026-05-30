@@ -12,6 +12,7 @@ const cssSources = [
   "styles/sections/hero.css",
   "styles/sections/content.css",
   "styles/components/cards.css",
+  "styles/components/media.css",
   "styles/sections/gallery.css",
   "styles/sections/contact.css",
   "styles/base/responsive.css"
@@ -24,6 +25,7 @@ const jsSources = [
   "src/components/info-card.js",
   "src/components/gallery-card.js",
   "src/modules/reveal.js",
+  "src/modules/parallax.js",
   "src/modules/header.js",
   "src/modules/mobile-menu.js",
   "src/modules/info-sections.js",
