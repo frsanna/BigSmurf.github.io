@@ -37,7 +37,7 @@ export const siteConfig = {
       eyebrow: "Superfici",
       title: "Mattonelle e rivestimenti",
       description:
-        "Collezioni per pareti e pavimenti capaci di impostare subito atmosfera, proporzioni e carattere del bagno.",
+        "Collezioni per pareti e pavimenti capaci di impostare subito atmosfera, proporzioni e carattere della casa.",
       accent: "#9b9690"
     },
     {

@@ -84,10 +84,13 @@
   line-height: 1.15;
 }
 
+/* Tile principale: occupa 2 colonne e 2 righe (le altre completano la 3×3) */
 .gallery-card-xl {
+  grid-column: span 2;
   grid-row: span 2;
 }
 
-.gallery-card-wide {
-  grid-column: span 2;
+.gallery-card-xl .gallery-copy strong {
+  font-size: 1.7rem;
+  max-width: 26ch;
 }

@@ -20,17 +20,20 @@
     property="og:description"
     content="Una proposta elegante e contemporanea per bagni, rivestimenti, sanitari, box doccia e superfici."
   >
-  <meta property="og:image" content="https://www.ibbagni.it/assets/logo-ib-bagni.jpg">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="800">
-  <meta property="og:image:alt" content="Logo IB Bagni Ceramiche">
+  <!-- TODO al rilascio: sostituire con un'immagine OG brandizzata 1200×630
+       (assets/og-image.jpg) generata dal nuovo logo ad alta risoluzione.
+       Per ora si usa una foto reale, più adatta delle anteprime del logo 100×100. -->
+  <meta property="og:image" content="https://www.ibbagni.it/assets/gallery/post-6.jpg">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Superfici e ceramiche nello showroom IB Bagni Ceramiche">
   <meta property="og:locale" content="it_IT">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IB Bagni Ceramiche | Showroom bagno e superfici a Nuoro">
   <meta name="twitter:description" content="Una proposta elegante e contemporanea per bagni, rivestimenti, sanitari, box doccia e superfici.">
-  <meta name="twitter:image" content="https://www.ibbagni.it/assets/logo-ib-bagni.jpg">
+  <meta name="twitter:image" content="https://www.ibbagni.it/assets/gallery/post-6.jpg">
 
   <meta name="theme-color" content="#111110">
   <link rel="icon" type="image/jpeg" href="assets/logo-ib-bagni.jpg">
@@ -46,6 +49,20 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="dist/styles.css">
+
+  <!-- ══ Analytics — PREDISPOSTO (da attivare al rilascio) ════════════
+       1. Sostituisci G-XXXXXXXXXX con il tuo ID Google Analytics 4.
+       2. Scommenta questo blocco.
+       Lo script si attiva solo dopo il consenso (vedi banner cookie):
+       window.dataLayer riceve gli eventi quando l'utente accetta.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.__ibAnalyticsId = "G-XXXXXXXXXX";
+  </script>
+  ════════════════════════════════════════════════════════════════ -->
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -134,12 +151,16 @@
   <!-- ══ Hero — full-bleed, fuori dal site-shell ══════════════════ -->
   <section class="hero" id="home">
     <!-- Immagine con parallax -->
+    <!-- SLOT HERO: sostituire src con la foto principale ad alta risoluzione
+         (consigliato ~2400px di larghezza, orizzontale). -->
     <div class="hero-bg" aria-hidden="true">
       <img
         src="assets/gallery/post-1.jpg"
         alt=""
         class="hero-bg-img"
         data-parallax="0.28"
+        fetchpriority="high"
+        decoding="async"
       >
       <div class="hero-bg-overlay"></div>
     </div>
@@ -451,6 +472,24 @@
       </section>
 
     </main>
+  </div>
+
+  <!-- ══ Banner cookie — predisposto, attivo solo se servono statistiche ══ -->
+  <div
+    class="cookie-banner"
+    id="cookie-banner"
+    role="dialog"
+    aria-live="polite"
+    aria-label="Informativa cookie"
+    hidden
+  >
+    <p class="cookie-banner__text">
+      Usiamo cookie tecnici e, con il tuo consenso, cookie statistici per migliorare il sito.
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-secondary" data-cookie="reject">Rifiuta</button>
+      <button type="button" class="btn btn-primary" data-cookie="accept">Accetta</button>
+    </div>
   </div>
 
   <script src="dist/app.js"></script>

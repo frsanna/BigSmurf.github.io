@@ -59,11 +59,17 @@
   animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
 }
 
+/* Badge logo: cornice chiara che valorizza il logo (trasparente o con sfondo)
+   senza ritagliarlo. Se arriverà una versione chiara per fondi scuri,
+   rimuovere background e padding per lasciarlo libero. */
 .hero-brand-logo {
-  width: 88px;
-  height: 88px;
-  border-radius: 22px;
-  object-fit: cover;
+  height: 84px;
+  width: auto;
+  max-width: 260px;
+  padding: 14px 18px;
+  border-radius: 20px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(184, 146, 74, 0.35);
   box-shadow:
     0 0 0 4px rgba(184, 146, 74, 0.08),
@@ -167,7 +173,7 @@
 
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 36px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;

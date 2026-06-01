@@ -4,10 +4,27 @@
   .studio-band,
   .contact-hero,
   .section-heading,
-  .gallery-layout,
   .mood-grid,
   .contact-strip {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Slot foto: in colonna singola si impilano e tornano panoramici */
+  .showroom-layout .story-card,
+  .showroom-layout .checklist,
+  .showroom-media {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .showroom-media,
+  .studio-media {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
   }
 
   .cards-grid-catalog {
@@ -23,10 +40,9 @@
     padding: 64px 32px;
   }
 
-  .gallery-card-xl,
-  .gallery-card-wide {
-    grid-column: auto;
-    grid-row: auto;
+  .gallery-card-xl {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 
   .contact-hours {
@@ -114,14 +130,48 @@
   }
 
   /* ── Hero full-screen ──────────────────────────────────────── */
-  .hero h1 {
-    font-size: clamp(2.6rem, 10.5vw, 4rem);
-    line-height: 0.96;
+  /* In colonna il contenuto si estende alla larghezza reale della viewport
+     (in riga il flex lo dimensionava al contenuto, causando overflow). */
+  .hero {
+    flex-direction: column;
   }
 
   .hero-inner {
+    width: 100%;
     padding: 0 20px;
     text-align: center;
+  }
+
+  /* Dentro il flex container .hero le percentuali non vincolano i figli:
+     usiamo limiti in ch (lunghezze assolute) così il testo va a capo e
+     non sfora mai il contenitore sugli schermi stretti. */
+  .hero h1 {
+    font-size: clamp(2.05rem, 8.4vw, 3.4rem);
+    line-height: 1;
+    max-width: 14ch;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+  }
+
+  .hero-inner .eyebrow {
+    max-width: 26ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-claim {
+    max-width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-brand-name {
+    max-width: 24ch;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
   }
 
   .hero-actions {
@@ -183,8 +233,19 @@
   }
 
   .gallery-layout {
+    grid-template-columns: 1fr;
     gap: 14px;
-    grid-auto-rows: 210px;
+    grid-auto-rows: 240px;
+  }
+
+  .gallery-card-xl {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .gallery-card-xl .gallery-copy strong {
+    font-size: 1.2rem;
+    max-width: 22ch;
   }
 
   /* ── Cards ─────────────────────────────────────────────────── */
@@ -284,12 +345,11 @@
   }
 
   .mood {
-    min-height: 300px;
+    min-height: 320px;
   }
 
   .mood h3 {
-    margin-top: 140px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 }
 

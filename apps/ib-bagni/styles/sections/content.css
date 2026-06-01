@@ -2,7 +2,7 @@
 
 .section-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  grid-template-columns: minmax(0, 0.5fr) minmax(260px, 0.7fr);
   gap: 22px 48px;
   align-items: end;
   margin-bottom: 40px;
@@ -24,7 +24,7 @@
 
 .intro-band {
   padding: 32px 38px;
-  border: 1px solid var(--line);
+  /* border: 1px solid var(--line); */
   border-radius: 18px;
   background: #ffffff;
 }
@@ -53,9 +53,10 @@
 }
 
 .studio-media {
+  align-self: stretch;
   margin: 0;
-  min-height: 100%;
-  aspect-ratio: 4 / 5;
+  width: 100%;
+  min-height: 360px;
   border: 1px solid var(--line-dark);
 }
 
@@ -85,19 +86,20 @@
   display: grid;
   align-content: start;
   gap: 10px;
-  min-width: 270px;
+  min-width: 0;
 }
 
 .studio-meta span {
   display: inline-flex;
   align-items: center;
   min-height: 52px;
-  padding: 0 18px;
+  padding: 12px 18px;
   border-radius: 12px;
   border: 1px solid var(--line-dark);
   background: rgba(255, 255, 255, 0.04);
   color: rgba(248, 246, 240, 0.82);
   font-size: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 /* ── Showroom section — OSSIDIANA ────────────────────────────── */
@@ -117,8 +119,9 @@
 .showroom-media {
   grid-column: 2;
   grid-row: 1 / span 2;
+  align-self: stretch;
   margin: 0;
-  min-height: 100%;
+  min-height: 420px;
   border: 1px solid var(--line-dark);
 }
 
@@ -253,8 +256,11 @@
 
 .mood {
   position: relative;
-  min-height: 400px;
-  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 420px;
+  padding: 26px;
   border-radius: 18px;
   overflow: hidden;
   color: #fff;
@@ -267,68 +273,64 @@
   box-shadow: 0 44px 90px rgba(10, 10, 9, 0.26);
 }
 
-.mood::before {
-  content: "";
+/* Foto (o placeholder) a tutta card */
+.mood-media {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  transition: transform 0.65s ease;
-  opacity: 0.96;
+  z-index: 0;
+  border-radius: inherit;
 }
 
-.mood:hover::before {
+.mood-media img {
+  transition: transform 0.65s ease;
+}
+
+.mood:hover .mood-media img {
   transform: scale(1.05);
 }
 
+/* In placeholder mostriamo solo l'icona centrale, non la dicitura in basso */
+.mood-media.photo-frame::after {
+  content: none;
+}
+
+/* Overlay scuro garantito in basso: il testo resta leggibile su qualsiasi foto */
 .mood::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(10, 10, 9, 0.78) 100%);
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 30%, rgba(10, 10, 9, 0.82) 100%);
+  pointer-events: none;
 }
 
-.mood span,
-.mood h3 {
+.mood-body {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .mood span {
   display: inline-block;
+  margin-bottom: 14px;
   padding: 7px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 9, 0.4);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(184, 146, 74, 0.3);
+  border: 1px solid rgba(184, 146, 74, 0.35);
   font-size: 0.66rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(212, 184, 122, 0.9);
+  color: rgba(212, 184, 122, 0.95);
 }
 
 .mood h3 {
-  margin-top: 220px;
-  max-width: 12ch;
+  margin: 0;
+  max-width: 20ch;
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-weight: 600;
-  line-height: 1.02;
-}
-
-.mood-stone::before {
-  background: linear-gradient(155deg, #e8e4de 0%, #ccc6bc 30%, #b0a89e 60%, #e2dcd4 100%);
-}
-
-.mood-charcoal::before {
-  background: linear-gradient(155deg, #141412 0%, #262622 44%, #3a3830 100%);
-}
-
-.mood-light::before {
-  background: linear-gradient(32deg, #f5f3ef 0%, #dddad4 36%, #c4c0ba 100%);
-}
-
-.mood-custom::before {
-  background: linear-gradient(140deg, #0e0e0c 0%, #262420 42%, #3a3630 100%);
+  line-height: 1.1;
+  text-shadow: 0 2px 18px rgba(10, 10, 9, 0.55);
 }
 
 /* ── Social / Instagram strip — OSSIDIANA ────────────────────── */
@@ -345,18 +347,19 @@
     var(--bg-obsidian);
   box-shadow: 0 36px 80px rgba(10, 10, 9, 0.2);
   color: var(--ink-light);
+  margin: 3em auto;
 }
 
 .social-strip h2 {
   font-size: clamp(2.4rem, 4.5vw, 4rem);
-  max-width: 14ch;
-  color: var(--ink-light);
+  max-width: 30ch;
+  color: var(--ink);
 }
 
 .social-strip p {
   margin: 14px 0 0;
   max-width: 36ch;
-  color: var(--muted-dark);
+  color: var(--ink);
   line-height: 1.86;
 }
 

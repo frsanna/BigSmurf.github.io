@@ -15,6 +15,7 @@ const cssSources = [
   "styles/components/media.css",
   "styles/sections/gallery.css",
   "styles/sections/contact.css",
+  "styles/components/cookie.css",
   "styles/base/responsive.css"
 ];
 
@@ -30,6 +31,7 @@ const jsSources = [
   "src/modules/mobile-menu.js",
   "src/modules/info-sections.js",
   "src/modules/gallery.js",
+  "src/modules/cookie-consent.js",
   "src/main.js"
 ];
 

@@ -51,11 +51,14 @@
   flex-shrink: 0;
 }
 
+/* Cornice neutra: mostra il logo intero senza ritagli, qualunque sia il formato */
 .brand img {
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  object-fit: cover;
+  height: 34px;
+  width: auto;
+  max-width: 150px;
+  padding: 3px 6px;
+  border-radius: 9px;
+  object-fit: contain;
   border: 1px solid rgba(184, 146, 74, 0.22);
   background: #fff;
 }

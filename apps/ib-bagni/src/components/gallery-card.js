@@ -1,12 +1,13 @@
 import { createNode } from "../utils/dom.js";
 
+// La prima tile è grande (2×2); le altre riempiono una griglia 3×3 senza buchi.
 const galleryLayoutClasses = [
   "gallery-card gallery-card-xl",
-  "gallery-card gallery-card-sm",
-  "gallery-card gallery-card-sm",
-  "gallery-card gallery-card-wide",
-  "gallery-card gallery-card-sm",
-  "gallery-card gallery-card-sm"
+  "gallery-card",
+  "gallery-card",
+  "gallery-card",
+  "gallery-card",
+  "gallery-card"
 ];
 
 /**
@@ -18,7 +19,7 @@ const galleryLayoutClasses = [
  */
 export function renderGalleryCard(item, index) {
   const card = createNode("a", {
-    className: galleryLayoutClasses[index] || "gallery-card gallery-card-sm",
+    className: galleryLayoutClasses[index] || "gallery-card",
     attrs: {
       href: item.postUrl,
       target: "_blank",
