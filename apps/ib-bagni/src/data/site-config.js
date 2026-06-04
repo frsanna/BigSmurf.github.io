@@ -35,9 +35,9 @@ export const siteConfig = {
     {
       icon: "fa-solid fa-border-all",
       eyebrow: "Superfici",
-      title: "Mattonelle e rivestimenti",
+      title: "Pavimenti e rivestimenti",
       description:
-        "Collezioni per pareti e pavimenti capaci di impostare subito atmosfera, proporzioni e carattere della casa.",
+        "Un'ampia sceltà di prodott e materiali per definire quello che sarà lo stile della propria casa",
       accent: "#9b9690"
     },
     {
@@ -45,7 +45,7 @@ export const siteConfig = {
       eyebrow: "Bagno",
       title: "Sanitari e lavabi",
       description:
-        "Elementi essenziali scelti per lavorare bene sia in spazi raccolti sia in ambienti piu ampi e scenografici.",
+        "Elementi essenziali scelti sia per spazi raccolti sia per ambienti piu ampi e scenografici.",
       accent: "#8a8986"
     },
     {
@@ -53,13 +53,13 @@ export const siteConfig = {
       eyebrow: "Comfort",
       title: "Docce e piatti doccia",
       description:
-        "Configurazioni pulite, pratiche e contemporanee per costruire una zona doccia bella da vedere e comoda da vivere.",
+        "Finiture pulite, pratiche e contemporanee per costruire una zona doccia bella da vedere e comoda da vivere.",
       accent: "#9b9690"
     },
     {
       icon: "fa-solid fa-compass-drafting",
       eyebrow: "Consulenza",
-      title: "Abbinamenti e orientamento",
+      title: "Esperienza e competenza",
       description:
         "Supporto nella scelta di materiali, tonalita e finiture per dare continuita visiva a tutto l'ambiente.",
       accent: "#c2bdb7"
@@ -69,7 +69,7 @@ export const siteConfig = {
       eyebrow: "Showroom",
       title: "Molto altro da scoprire",
       description:
-        "Complementi, dettagli coordinati e soluzioni da valutare dal vivo per trovare la combinazione giusta per ogni progetto.",
+        "Numerosesoluzioni da valutare dal vivo per trovare la combinazione giusta per ogni progetto.",
       accent: "#706e6b"
     }
   ],
@@ -79,7 +79,7 @@ export const siteConfig = {
       eyebrow: "Visita",
       title: "Vieni in negozio",
       description:
-        "Nuoro Pratosardo lotto 6. Il modo migliore per capire materiali, finiture e proporzioni e vedere tutto da vicino.",
+        "Ci trovi nella zona industriale Prato Sardo in via Efisio Magnani, 33 - Strada A - Lotto n° 6",
       href:
         "https://www.google.it/maps/place/IB.BAGNI+Ceramiche/@40.3230337,9.2667657,866m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12de814f11c22a47:0x5925cd0268fe26f5!8m2!3d40.3230337!4d9.2693406!16s%2Fg%2F1xb0n1v2?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D",
       label: "Apri in Google Maps",
