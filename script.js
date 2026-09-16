@@ -144,6 +144,57 @@ function initLogoEasterEgg() {
   });
 }
 
+/**
+ * Toggles the mobile navigation drawer and syncs ARIA state.
+ * @returns {void}
+ */
+function initMobileNavigation() {
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+
+  if (!toggle || !nav) {
+    return;
+  }
+
+  /**
+   * @param {boolean} open
+   */
+  function setNavOpen(open) {
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    const icon = toggle.querySelector('i');
+    if (icon) {
+      icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    }
+  }
+
+  toggle.addEventListener('click', () => {
+    setNavOpen(!document.body.classList.contains('nav-open'));
+  });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setNavOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setNavOpen(false);
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!document.body.classList.contains('nav-open')) {
+      return;
+    }
+    const target = event.target;
+    if (target instanceof Node && (nav.contains(target) || toggle.contains(target))) {
+      return;
+    }
+    setNavOpen(false);
+  });
+}
+
 let hasInitialized = false;
 
 /**
@@ -156,6 +207,7 @@ function initSite() {
   }
   hasInitialized = true;
   initSectionNavigation();
+  initMobileNavigation();
   initLogoEasterEgg();
 }
 

@@ -65,6 +65,15 @@ Then open:
 - Push changes to the branch used by GitHub Pages
 - GitHub Pages serves static files as-is
 
+## CV PDF
+After editing [resources/curriculum-export.html](resources/curriculum-export.html) (or syncing from site copy), regenerate the downloadable PDF:
+
+```bash
+./resources/build-curriculum-pdf.sh
+```
+
+Uses headless Chrome with `--no-pdf-header-footer` so the PDF has no browser date, title bar, or `file://` path.
+
 ## Recommended Workflow
 1. Edit component(s) under `components/`
 2. Run `node build-inline-components.js`
