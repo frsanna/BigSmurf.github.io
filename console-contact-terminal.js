@@ -1,9 +1,10 @@
 // console-contact-terminal.js
 (() => {
-  /** @type {{email: string, location: string, linkedin: string}} */
+  /** @type {{email: string, location: string, workSetup: string, linkedin: string}} */
   const contacts = Object.freeze({
     email: "job@francescosanna.eu",
     location: "Cagliari, Italy",
+    workSetup: "Open to remote work, relocation, or regular travel",
     linkedin: "https://www.linkedin.com/in/francesco-sanna"
   });
 
@@ -23,15 +24,12 @@
       "%cFrancesco Sanna | Contact Console",
       "font-size:18px;font-weight:800;color:#2a9d8f;"
     );
-    // nativeConsole.log(
-    //   "%cWelcome to the Capybara Compliance Layer.",
-    //   "font-size:12px;color:#8d6e63;font-weight:700;"
-    // );
-    // nativeConsole.log(
-    //   "%cThis console is intentionally read-only. Contact details only.",
-    //   "font-size:12px;color:#4f4f4f;"
-    // );
-    nativeConsole.table(contacts);
+    nativeConsole.table({
+      Email: contacts.email,
+      Location: contacts.location,
+      "Remote / relocation": contacts.workSetup,
+      LinkedIn: contacts.linkedin
+    });
     nativeConsole.log(
       "%cQuick actions: fsContact.sendEmail() | fsContact.openLinkedIn()",
       "font-size:12px;color:#e76f51;font-weight:700;"
@@ -40,11 +38,11 @@
 
   /**
    * Public helper object exposed on `window` for quick contact actions.
-   * @type {{email: string, location: string, linkedin: string, sendEmail: () => void, openLinkedIn: () => void}}
    */
   const fsContact = Object.freeze({
     email: contacts.email,
     location: contacts.location,
+    workSetup: contacts.workSetup,
     linkedin: contacts.linkedin,
     sendEmail: () => window.open(`mailto:${contacts.email}`, "_self"),
     openLinkedIn: () => window.open(contacts.linkedin, "_blank", "noopener,noreferrer")

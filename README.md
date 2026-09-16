@@ -65,6 +65,15 @@ Then open:
 - Push changes to the branch used by GitHub Pages
 - GitHub Pages serves static files as-is
 
+## Favicon
+Source: [resources/img/favicon.svg](resources/img/favicon.svg) (FS monogram, site palette).
+
+After editing the SVG, regenerate raster assets and `.ico`:
+
+```bash
+./resources/build-favicon.sh
+```
+
 ## CV PDF
 After editing [resources/curriculum-export.html](resources/curriculum-export.html) (or syncing from site copy), regenerate the downloadable PDF:
 
