@@ -1,0 +1,402 @@
+:root {
+  --bg: #1a1814;
+  --ink: #e4ddd0;
+  --ink-dim: #9c9488;
+  --label: #7a7368;
+  --vignette: 0.42;
+  --grain: 0.16;
+  --sprocket: 0.38;
+  --frame: rgba(228, 221, 208, 0.38);
+  --ember: transparent;
+  color-scheme: dark;
+}
+
+[data-phase="worn"] {
+  --bg: #12110e;
+  --ink: #c9c2b4;
+  --ink-dim: #8a8276;
+  --label: #665f56;
+  --vignette: 0.58;
+  --grain: 0.24;
+  --sprocket: 0.32;
+  --frame: rgba(201, 194, 180, 0.28);
+}
+
+[data-phase="dark"] {
+  --bg: #070706;
+  --ink: #8f897f;
+  --ink-dim: #5e5952;
+  --label: #45413b;
+  --vignette: 0.74;
+  --grain: 0.32;
+  --sprocket: 0.2;
+  --frame: rgba(143, 137, 127, 0.18);
+}
+
+[data-phase="critical"] {
+  --bg: #030302;
+  --ink: #6f6a62;
+  --ink-dim: #4a463f;
+  --label: #3a3631;
+  --vignette: 0.86;
+  --grain: 0.42;
+  --sprocket: 0.1;
+  --frame: rgba(111, 106, 98, 0.14);
+  --ember: rgba(140, 48, 16, 0.7);
+}
+
+[data-phase="open"] {
+  --bg: #4a453c;
+  --ink: #f4efe6;
+  --ink-dim: #d9d0c3;
+  --label: #d9d0c3;
+  --vignette: 0.18;
+  --grain: 0.12;
+  --sprocket: 0;
+  --frame: rgba(244, 239, 230, 0.55);
+  --ember: transparent;
+}
+
+[data-phase="sealed"],
+[data-phase="fault"] {
+  --bg: #141311;
+  --ink: #7a756c;
+  --ink-dim: #5c574f;
+  --label: #5c574f;
+  --vignette: 0.62;
+  --grain: 0.1;
+  --sprocket: 0.16;
+  --frame: rgba(122, 117, 108, 0.22);
+  --ember: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+  transition:
+    background-color 2.2s linear,
+    color 2.2s linear;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1.6rem;
+  pointer-events: none;
+  opacity: var(--sprocket);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 0.55rem,
+    rgba(232, 224, 210, 0.34) 0.55rem 1.15rem,
+    transparent 1.15rem 1.9rem
+  );
+  transition: opacity 2.2s linear;
+}
+
+body::before {
+  left: 0.85rem;
+}
+
+body::after {
+  right: 0.85rem;
+}
+
+.grain,
+.vignette,
+.flash,
+.scratch {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.grain {
+  inset: -15%;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.85'/></svg>");
+  transition: opacity 2.2s linear;
+}
+
+.vignette {
+  background:
+    radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, var(--vignette)) 78%),
+    radial-gradient(circle at 50% 115%, var(--ember), transparent 46%);
+  transition: background 2.2s linear;
+}
+
+.flash {
+  background: #000;
+  opacity: 0;
+}
+
+.flash.on {
+  animation: blackout 90ms steps(2, end);
+}
+
+.scratch {
+  inset: auto;
+  top: -12%;
+  width: 1px;
+  height: 124%;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.scratch.on {
+  animation: tear 150ms linear;
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100vw - 5.5rem));
+  padding: clamp(2.4rem, 6vw, 4.2rem) clamp(1.2rem, 4vw, 2.4rem);
+  text-align: center;
+  background:
+    linear-gradient(var(--frame), var(--frame)) left top / 1.35rem 1px no-repeat,
+    linear-gradient(var(--frame), var(--frame)) left top / 1px 1.35rem no-repeat,
+    linear-gradient(var(--frame), var(--frame)) right top / 1.35rem 1px no-repeat,
+    linear-gradient(var(--frame), var(--frame)) right top / 1px 1.35rem no-repeat,
+    linear-gradient(var(--frame), var(--frame)) left bottom / 1.35rem 1px no-repeat,
+    linear-gradient(var(--frame), var(--frame)) left bottom / 1px 1.35rem no-repeat,
+    linear-gradient(var(--frame), var(--frame)) right bottom / 1.35rem 1px no-repeat,
+    linear-gradient(var(--frame), var(--frame)) right bottom / 1px 1.35rem no-repeat;
+}
+
+.place,
+.instant,
+.readout {
+  margin: 0;
+}
+
+.place {
+  font-weight: 500;
+  font-size: clamp(3.2rem, 11vw, 7.4rem);
+  line-height: 0.86;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-indent: 0.16em;
+}
+
+.instant {
+  margin-top: 1.05rem;
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  letter-spacing: 0.14em;
+  color: var(--ink-dim);
+}
+
+.readout[hidden],
+.instant[hidden] {
+  display: none;
+}
+
+.readout {
+  margin-top: clamp(2.2rem, 6vw, 3.6rem);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(0.8rem, 3vw, 2.6rem);
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 3.2rem;
+}
+
+.value {
+  font-family: "Share Tech Mono", "Courier New", Courier, monospace;
+  font-size: clamp(2.6rem, 8vw, 5.6rem);
+  line-height: 0.85;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.label {
+  font-family: "Share Tech Mono", "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+.unit-seconds .value {
+  font-size: clamp(1.45rem, 4.4vw, 3.1rem);
+  opacity: 0.48;
+}
+
+.unit-seconds .label {
+  opacity: 0.55;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-phase="open"] .place {
+  font-size: clamp(3.8rem, 13vw, 8.6rem);
+}
+
+[data-phase="sealed"] .place,
+[data-phase="fault"] .place {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+}
+
+.skip {
+  animation: skip 100ms steps(2, end);
+}
+
+@media (max-width: 640px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  .frame {
+    width: min(920px, calc(100vw - 2rem));
+  }
+
+  .readout {
+    flex-wrap: wrap;
+    row-gap: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .grain {
+    animation: grain 0.45s steps(2, end) infinite;
+  }
+
+  [data-phase="critical"] .vignette {
+    animation: ember 3.8s ease-in-out infinite;
+  }
+
+  [data-phase="critical"] .unit-seconds .value {
+    animation: unstable 1.35s steps(2, end) infinite;
+  }
+
+  [data-phase="sealed"] .grain,
+  [data-phase="fault"] .grain {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body::before,
+  body::after,
+  .grain,
+  .vignette {
+    transition: none;
+  }
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1.5%, 1%);
+  }
+  50% {
+    transform: translate(1%, -1.5%);
+  }
+  75% {
+    transform: translate(-1%, -1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes ember {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes unstable {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.62;
+    transform: translateX(1px);
+  }
+}
+
+@keyframes skip {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  45% {
+    opacity: 0.05;
+    transform: translate(2px, -1px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes blackout {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.92;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tear {
+  0% {
+    opacity: 0;
+    transform: translateY(-6%) rotate(1.5deg);
+  }
+  35% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8%) rotate(1.5deg);
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milano</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-phase="calm">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="flash" aria-hidden="true"></div>
+    <div class="scratch" aria-hidden="true"></div>
+    <main class="frame">
+      <p class="place" id="place" data-flick>Milano</p>
+      <p class="instant" id="instant" data-flick>13 novembre 2026, 00:00</p>
+      <p class="sr" id="status" aria-live="polite"></p>
+      <div class="readout" id="readout">
+        <div class="unit" data-flick>
+          <span class="value" data-unit="days">00</span>
+          <span class="label">giorni</span>
+        </div>
+        <div class="unit" data-flick>
+          <span class="value" data-unit="hours">00</span>
+          <span class="label">ore</span>
+        </div>
+        <div class="unit" data-flick>
+          <span class="value" data-unit="minutes">00</span>
+          <span class="label">minuti</span>
+        </div>
+        <div class="unit unit-seconds" data-flick>
+          <span class="value" data-unit="seconds">00</span>
+          <span class="label">secondi</span>
+        </div>
+      </div>
+    </main>
+    <script src="./config.js"></script>
+    <script src="./logic.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
