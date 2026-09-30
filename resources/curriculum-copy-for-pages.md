@@ -9,69 +9,61 @@ Use this text in Apple Pages if you prefer manual layout. For the site download 
 **Francesco Sanna**  
 **Engineering Manager & Technical Lead**
 
-job@francescosanna.eu  
-Cagliari, Italy · remote work; relocation or regular travel possible  
-linkedin.com/in/francesco-sanna  
-francescosanna.eu
+job@francescosanna.eu · linkedin.com/in/francesco-sanna · francescosanna.eu  
+Cagliari, Italy · Italian, English · remote work; relocation or regular travel possible
 
 ---
 
 ## Profile
 
-Developer since 2010, specializing in web technologies (Angular, React, Node.js, MongoDB) and experienced in project leadership, integrations, training, and performance tuning. Passionate about clean code and mentoring.
-
-At Stackhouse (Spindox) I lead engineering squads while staying hands-on in architecture, code review, and delivery, including ServiceNow (SAM, ITSM, integrations, widgets, flows). Previously at Vivocha (12+ years) I delivered enterprise integrations and international technical training for banking and insurance clients.
+I lead technical delivery, and I still design and write the software. For fifteen years I have owned the technical direction and the organization required to take it into production. The work crosses industries, with enterprise customers and large delivery partners: integrations, customer-facing applications, and training for the engineering teams who run what we deliver. Today I lead squads of three to six. I set architecture, roadmap, and who delivers what, and I remain in review and implementation.
 
 ---
 
 ## Skills (single line with ● separators)
 
-Team leadership ● Agile delivery ● ServiceNow ● HTML ● CSS ● JavaScript ● TypeScript ● Angular ● React ● Node.js ● React Native / Expo ● MongoDB ● REST APIs ● Git & CI/CD ● Technical training
+TypeScript ● JavaScript ● React ● Angular ● Node.js ● Mobile ● MongoDB ● and more
+
+HTML ● CSS ● REST APIs ● ServiceNow ● Git & CI/CD ● and more  
+Technical leadership ● Project coordination ● Agile delivery ● Technical training ● and more
 
 ---
 
 ## Experience
 
 ### Engineering Manager & Technical Lead | Stackhouse – Spindox | Sep 2024 – Present
-*Full Stack Developer · Technical Project Leader (contract)*
 
-- Lead engineering squads (typically 3–6 people) on internal and external engagements.
-- Own roadmaps, sprint planning, retrospectives, and backlog prioritization.
-- Mentor through code reviews and standards focused on maintainability and reuse.
-- Hands-on ServiceNow delivery (SAM, ITSM, REST integrations, widgets, business rules, flows); reusable libraries and solution design with stakeholders.
-- Partner with customers on requirements and technical trade-offs.
-- Hands-on in React, TypeScript, and API integrations alongside platform work.
+- Ship features in React, TypeScript, REST, and ServiceNow (SAM, ITSM, widgets, flows).
+- Lead squads of 3–6: roadmap, sprint planning, priorities, and retrospectives with product and customers.
+- Set architecture, trade-offs, and solution design, plus scope, priorities, and who delivers what.
+- Raise quality in review and pairing, and leave shared integration libraries for the next project.
 
 ### Professional Services Lead & Technical Trainer | Vivocha | Jul 2012 – Sep 2024
 
-- 12+ years in client-facing delivery across banking and insurance (from developer to PS leadership).
-- Custom platform integrations from discovery through go-live.
-- International workshops on JavaScript SDKs and REST APIs.
-- Customer-facing HTML/CSS/JavaScript components and workflow consulting.
-- 2nd-level support and SLA management.
+- Built custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners.
+- Owned delivery from discovery to go-live, including scope and priority changes with the customer.
+- Ran hands-on workshops for international engineering teams on JavaScript SDKs and REST APIs.
+- Handled second-level support after release, including SLA-critical production issues.
 
 ### Developer & University Intern | Reilabs | 2010 – 2012
 
-- Web analytics product: full-stack features, REST feeds, KPI dashboards.
-- Internship work informed B.Sc. thesis on web analytics technologies.
+- Web analytics product: full-stack features, REST feeds, and KPI dashboards.
 
 ---
 
 ## Selected projects
 
-**Nomad** Ideator and lead developer. Mobile-first offline travel companion (TypeScript, Expo, Hono, MongoDB). MVP feature-complete with CI and i18n. nomadtravel.guru
+**Nomad.** Product I conceived and built. Mobile-first offline travel companion (TypeScript, Expo, React Native, Hono, MongoDB). MVP feature-complete, with CI, tests, and Italian/English. nomadtravel.guru
 
-**Platform engineering (Stackhouse)** ServiceNow and web delivery with shared integration libraries.
+**Platform engineering.** Web delivery I both plan and implement, built on shared integration libraries.
 
-**Enterprise integrations (Vivocha)** Custom third-party integrations for banking and insurance clients.
+**Enterprise integrations.** Custom integrations and embeddable chat widgets for enterprise clients across industries, from scoping through delivery.
 
 ---
 
 ## Education
 
 B.Sc. Computer Science, University of Cagliari (2011)
-
-W3Schools React certification, Certified React Developer Professional Level
 
 ---
 
