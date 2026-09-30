@@ -46,15 +46,15 @@
 }
 
 [data-phase="open"] {
-  --bg: #4a453c;
-  --ink: #f4efe6;
-  --ink-dim: #d9d0c3;
-  --label: #d9d0c3;
-  --vignette: 0.18;
-  --grain: 0.12;
-  --sprocket: 0;
-  --frame: rgba(244, 239, 230, 0.55);
-  --ember: transparent;
+  --bg: #030302;
+  --ink: #6f6a62;
+  --ink-dim: #4a463f;
+  --label: #3a3631;
+  --vignette: 0.86;
+  --grain: 0.42;
+  --sprocket: 0.1;
+  --frame: rgba(111, 106, 98, 0.14);
+  --ember: rgba(140, 48, 16, 0.7);
 }
 
 [data-phase="sealed"],
@@ -120,9 +120,11 @@ body::after {
 }
 
 .grain,
+.static,
 .vignette,
 .flash,
-.scratch {
+.scratch,
+.bands {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -135,6 +137,39 @@ body::after {
   transition: opacity 2.2s linear;
 }
 
+.static {
+  z-index: 2;
+  opacity: calc(0.04 + var(--static, 0) * 0.5);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgba(255, 255, 255, 0.16) 2px 3px
+  );
+}
+
+.bands {
+  z-index: 4;
+  overflow: hidden;
+}
+
+.band {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    rgba(0, 0, 0, 0.92) 55%,
+    transparent
+  );
+}
+
+.band.on {
+  opacity: 1;
+}
+
 .vignette {
   background:
     radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, var(--vignette)) 78%),
@@ -143,6 +178,7 @@ body::after {
 }
 
 .flash {
+  z-index: 5;
   background: #000;
   opacity: 0;
 }
@@ -262,17 +298,13 @@ body::after {
   border: 0;
 }
 
-[data-phase="open"] .place {
-  font-size: clamp(3.8rem, 13vw, 8.6rem);
-}
-
 [data-phase="sealed"] .place,
 [data-phase="fault"] .place {
   font-size: clamp(2.8rem, 9vw, 6rem);
 }
 
 .skip {
-  animation: skip 100ms steps(2, end);
+  animation: skip 110ms steps(2, end);
 }
 
 @media (max-width: 640px) {
@@ -296,12 +328,24 @@ body::after {
     animation: grain 0.45s steps(2, end) infinite;
   }
 
-  [data-phase="critical"] .vignette {
+  .static {
+    animation: roll linear infinite;
+    animation-duration: calc((2.6 - var(--static, 0) * 2) * 1s);
+  }
+
+  [data-phase="critical"] .vignette,
+  [data-phase="open"] .vignette {
     animation: ember 3.8s ease-in-out infinite;
   }
 
-  [data-phase="critical"] .unit-seconds .value {
+  [data-storm="high"] .unit-seconds .value {
     animation: unstable 1.35s steps(2, end) infinite;
+  }
+
+  [data-phase="sealed"] .static,
+  [data-phase="fault"] .static {
+    animation: none;
+    opacity: 0;
   }
 
   [data-phase="sealed"] .grain,
@@ -360,14 +404,23 @@ body::after {
   }
 }
 
+@keyframes roll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 14px;
+  }
+}
+
 @keyframes skip {
   0% {
     opacity: 1;
     transform: none;
   }
   45% {
-    opacity: 0.05;
-    transform: translate(2px, -1px);
+    opacity: 0.02;
+    transform: translate(var(--kick, 2px), -1px);
   }
   100% {
     opacity: 1;

@@ -231,6 +231,23 @@
         if (fault || !target) return splitRemaining(0);
         return splitRemaining(target.getTime() - now.getTime());
       },
+      /**
+       * Interference strength from 0 to 1.
+       * Far from the instant it stays low. It climbs as the instant approaches
+       * and holds at full strength through the arrival day.
+       * @param {Date} now
+       * @returns {number}
+       */
+      signal(now) {
+        if (fault || !target || !openUntil) return 0;
+        const phaseName = this.phase(now);
+        if (phaseName === "sealed" || phaseName === "fault") return 0;
+        if (phaseName === "open") return 1;
+        const left = target.getTime() - now.getTime();
+        const horizon = 60 * DAY;
+        const closeness = 1 - Math.min(Math.max(left, 0), horizon) / horizon;
+        return Math.pow(closeness, 1.65);
+      },
     };
   }
 
