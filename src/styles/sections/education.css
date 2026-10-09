@@ -1,0 +1,7 @@
+.edu-list { display: grid; gap: 0.75rem; max-width: 46rem; }
+.edu-list li {
+  display: flex; align-items: center; gap: 0.85rem; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; font-weight: 500;
+}
+.edu-list .icon { color: var(--accent); width: 1.4em; height: 1.4em; }
+.edu-label { margin: 2rem 0 0.75rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text2); }

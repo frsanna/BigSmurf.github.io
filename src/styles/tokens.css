@@ -1,0 +1,39 @@
+/* Design tokens. Light page with a deep-ink hero band; no automatic dark theme (owner's choice). */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/dm-sans-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --bg: #fbfaf7;
+  --bg-alt: #f2f5f4;
+  --surface: #ffffff;
+  --text: #15201e;
+  --text2: #4b5855;
+  --line: #dfe5e2;
+  --accent: #1f7a70;        /* text-safe teal (≥ 4.5:1 on --bg) */
+  --accent-strong: #2a9d8f; /* brand teal, decorative */
+  --accent2: #e76f51;       /* coral, decorative only (borders, bars) */
+  --accent2-text: #b2462b;  /* coral for small text (≥ 4.5:1) */
+  --focus: #15201e;
+  --accent-soft: #e3f1ee;
+  --accent-ink: #17675e;    /* teal text on --accent-soft */
+  --on-accent: #ffffff;
+  --overlay: rgba(12, 31, 29, 0.85);
+  --shadow: 0 1px 2px rgba(21, 32, 30, 0.04), 0 8px 24px rgba(21, 32, 30, 0.06);
+  /* Deep-ink band (header + hero) */
+  --ink: #0c1f1d;
+  --ink-line: #25403c;
+  --on-ink: #eef5f3;
+  --on-ink-2: #a9c2bd;
+  --on-ink-nav: #cfe3df;
+  --ink-accent: #5ccbbb;    /* teal on ink, 8.7:1 */
+  --ink-accent2: #f0896f;   /* coral on ink, 6.9:1 */
+  --ink-focus: #f4a28c;
+  --radius: 14px;
+  --font: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --wrap: 72rem;
+  --header-h: 4rem;
+}

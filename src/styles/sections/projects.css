@@ -1,0 +1,6 @@
+.stack { font-size: 0.9rem; font-weight: 600; color: var(--accent) !important; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: stretch; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; display: grid; align-content: start; gap: 0.6rem; }
+.card h3 { font-size: 1.2rem; }
+.card p:not(.stack) { color: var(--text2); font-size: 1rem; }
+@media (max-width: 960px) { .cards { grid-template-columns: 1fr; } }
