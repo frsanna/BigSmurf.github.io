@@ -1,0 +1,14 @@
+[
+  "tokens.css",
+  "base.css",
+  "layout.css",
+  "sections/hero.css",
+  "sections/about.css",
+  "sections/experience.css",
+  "sections/projects.css",
+  "sections/skills.css",
+  "sections/education.css",
+  "sections/contact.css",
+  "easter-egg.css",
+  "print.css"
+]

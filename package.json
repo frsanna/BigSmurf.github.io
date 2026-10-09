@@ -1,0 +1,14 @@
+{
+  "name": "francescosanna.eu",
+  "private": true,
+  "description": "Personal website and CV of Francesco Sanna, built as static HTML for GitHub Pages.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:ci": "node scripts/build.js --strict",
+    "pdf": "./scripts/build-pdf.sh",
+    "og": "./scripts/build-og.sh",
+    "serve": "node scripts/serve.js",
+    "dev": "node scripts/build.js && node scripts/serve.js"
+  }
+}

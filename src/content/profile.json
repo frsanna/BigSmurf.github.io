@@ -1,0 +1,240 @@
+{
+  "site": {
+    "url": "https://francescosanna.eu/",
+    "lang": "en",
+    "locale": "en_US",
+    "title": "Francesco Sanna | Engineering Manager & Technical Lead",
+    "description": "Engineering Manager & Technical Lead in Cagliari, Italy, open to remote or relocation. 15+ years in software, hands-on with React, TypeScript, ServiceNow.",
+    "ogDescription": "Engineering Manager and Technical Lead in Cagliari, Italy, open to remote or relocation: hands-on in code and architecture, accountable for client direction and delivery.",
+    "themeColor": "#0c1f1d"
+  },
+  "person": {
+    "name": "Francesco Sanna",
+    "headline": "Engineering Manager & Technical Lead",
+    "email": "job@francescosanna.eu",
+    "linkedin": "https://www.linkedin.com/in/francesco-sanna",
+    "linkedinLabel": "linkedin.com/in/francesco-sanna",
+    "location": "Cagliari, Italy",
+    "languages": "Italian (native), English (professional working proficiency)",
+    "workSetup": "Open to remote work, relocation, or regular travel",
+    "websiteLabel": "francescosanna.eu"
+  },
+  "hero": {
+    "lead": "More than fifteen years in software, over ten of them leading as well as building: agreeing on direction with clients, setting the architecture, and owning delivery.",
+    "facts": [
+      {
+        "value": "15+",
+        "label": "years in software"
+      },
+      {
+        "value": "12",
+        "label": "years delivering for enterprise clients"
+      },
+      {
+        "value": "Dozens",
+        "label": "of clients, from fashion and retail to banking and insurance"
+      },
+      {
+        "value": "3–6",
+        "label": "people per squad I lead today"
+      }
+    ]
+  },
+  "about": {
+    "paragraphs": [
+      "I started as a developer, and throughout my career I have worked across the whole spectrum: code, architecture, client direction, and teams. For more than ten years I have led as well as built, and for over five of them technical direction was the core of the job: agreeing with clients how to proceed and which paths to take. All along, I stayed close to the architecture, the delivery, and the people doing the work, and owned the organization required to take that work into production.",
+      "I have worked with dozens of clients across very different sectors, from fashion and retail to banking and insurance, as well as with system integrators and delivery partners. The work itself is custom integrations, customer-facing applications, and the technical decisions that hold a program together when scope and priority move. I am the technical voice with the client, from pre-sales estimates, proposals, and pre-signature workshops to status reporting and steering meetings. I train the engineering teams who will run what we deliver, including international groups around the world, in hands-on workshops delivered in English. After go-live I stay accountable for production.",
+      "Today I lead squads of three to six, on both client and internal work. I set the architecture, the roadmap, and who delivers what, and I remain in review and implementation. I have run hiring interviews and evaluated people’s performance and results. I can also conceive a product and drive its development from scratch."
+    ],
+    "pdfSummary": "More than fifteen years in software. I started as a developer and have always worked across the whole spectrum: code, architecture, client direction, and teams. For more than ten years I have led as well as built; for over five of them, technical direction was the core of the job: agreeing with clients how to proceed and which paths to take. I have worked with dozens of clients across sectors, from fashion and retail to banking and insurance, as well as system integrators and delivery partners. I am the technical voice with the client, from pre-sales estimates and proposals to steering meetings, and after go-live I stay accountable for production. I have run hiring interviews and evaluated people’s performance and results.",
+    "strengths": [
+      {
+        "title": "Technical direction",
+        "points": [
+          "Direction agreed with clients",
+          "Architecture and trade-offs",
+          "Solution design"
+        ]
+      },
+      {
+        "title": "Delivery ownership",
+        "points": [
+          "Dozens of clients across industries",
+          "Pre-sales estimates, proposals, and scoping workshops",
+          "Status reporting and steering with clients",
+          "Accountable for production"
+        ]
+      },
+      {
+        "title": "Teams and training",
+        "points": [
+          "Hiring interviews and performance evaluation",
+          "Roadmap and sprint planning",
+          "Hands-on workshops for international teams"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "stackhouse",
+      "role": "Engineering Manager & Technical Lead",
+      "company": "Stackhouse (Spindox group)",
+      "start": "Sep 2024",
+      "end": "Present",
+      "note": "I own how the work is directed, planned, and delivered, and I still write the code.",
+      "bullets": [
+        {
+          "text": "Lead squads of 3–6: roadmap, sprint planning, backlog prioritization, and retrospectives with product and client stakeholders.",
+          "short": "Lead squads of 3–6: roadmap, sprint planning, backlog prioritization, and retrospectives with product and client stakeholders."
+        },
+        {
+          "text": "Set the technical direction (architecture, trade-offs, solution design) and the organizational one: scope, priorities, and who delivers what.",
+          "short": "Set the technical direction (architecture, trade-offs, solution design) and the organizational one: scope, priorities, and who delivers what."
+        },
+        {
+          "text": "Deliver ServiceNow solutions (SAM, ITSM, widgets, business rules, flows) on client and internal engagements.",
+          "short": "Deliver ServiceNow solutions (SAM, ITSM, widgets, business rules, flows) on client and internal engagements."
+        },
+        {
+          "text": "Develop production features with React, TypeScript, and REST integrations.",
+          "short": "Develop production features with React, TypeScript, and REST integrations."
+        },
+        {
+          "text": "Hold the quality bar through code review and pairing, and leave shared integration libraries so the next project does not start from zero.",
+          "short": "Hold the quality bar through code review and pairing, and leave shared integration libraries so the next project does not start from zero."
+        }
+      ],
+      "org": "Stackhouse",
+      "parentOrg": "Spindox"
+    },
+    {
+      "id": "vivocha",
+      "role": "Professional Services Lead & Technical Trainer",
+      "company": "Vivocha",
+      "start": "Jul 2012",
+      "end": "Sep 2024",
+      "note": "Twelve years delivering for enterprise clients, from the developer who built the work to the lead who owned it.",
+      "bullets": [
+        {
+          "text": "Worked across the full spectrum throughout, covering senior developer, project manager, technical lead, and trainer roles as each engagement required; for more than five years technical direction was the core of the role, deciding with clients how to proceed and which paths to take.",
+          "short": "Worked across the full spectrum throughout, covering senior developer, project manager, technical lead, and trainer roles as each engagement required; for more than five years technical direction was the core of the role, deciding with clients how to proceed and which paths to take."
+        },
+        {
+          "text": "Owned engagements from discovery to go-live: requirements, technical decisions, and the relationship with the client when scope or priority changed.",
+          "short": "Owned engagements from discovery to go-live: requirements, technical decisions, and the relationship with the client when scope or priority changed."
+        },
+        {
+          "text": "Designed and implemented custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners.",
+          "short": "Designed and implemented custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners."
+        },
+        {
+          "text": "Taught engineering teams around the world in hands-on workshops on JavaScript SDKs and REST APIs, delivered in English, so they could run what we had shipped.",
+          "short": "Taught engineering teams around the world in hands-on workshops on JavaScript SDKs and REST APIs, delivered in English, so they could run what we had shipped."
+        },
+        {
+          "text": "Stayed accountable after go-live, owning escalated production incidents, including SLA-critical ones.",
+          "short": "Stayed accountable after go-live, owning escalated production incidents, including SLA-critical ones."
+        }
+      ]
+    },
+    {
+      "id": "reilabs",
+      "role": "Developer & University Intern",
+      "company": "Reilabs",
+      "start": "2010",
+      "end": "2012",
+      "note": "",
+      "bullets": [
+        {
+          "text": "Built front-end and back-end features for a web analytics product, including REST data feeds and interactive KPI dashboards.",
+          "short": "Built front-end and back-end features for a web analytics product, including REST data feeds and interactive KPI dashboards."
+        },
+        {
+          "text": "Worked on metrics design and on page-load and database performance.",
+          "short": "Worked on metrics design and on page-load and database performance."
+        }
+      ]
+    }
+  ],
+  "projects": {
+    "items": [
+      {
+        "name": "Shared Integration Libraries",
+        "stack": "TypeScript, React, REST APIs, integration libraries",
+        "text": "I plan the engagement and I implement it: web delivery built around shared libraries, maintainable integrations, and less duplicated work across projects. I coordinate the squad from inside code review and implementation, not from the sidelines.",
+        "pdfName": "",
+        "pdf": ""
+      },
+      {
+        "name": "Enterprise Integrations & Widgets",
+        "stack": "JavaScript, Angular, Node.js, CSS, REST APIs",
+        "text": "I designed and built custom integrations for enterprise clients across industries, from scoping through delivery, plus embeddable chat and video-chat widgets with real-time messaging, notifications, and event handling, used across client portals.",
+        "pdfName": "Enterprise Integrations & Widgets",
+        "pdf": "Custom integrations for enterprise clients across industries, from scoping through delivery, plus embeddable chat and video-chat widgets with real-time messaging (JavaScript, Angular, Node.js, REST APIs)."
+      },
+      {
+        "name": "Technical Training",
+        "stack": "JavaScript SDKs, REST APIs, architecture workshops",
+        "text": "I designed and delivered workshops for international client teams, from a first overview to hands-on work on JavaScript SDKs, REST APIs, and solution architecture, so those teams could own what we had shipped.",
+        "pdfName": "",
+        "pdf": ""
+      }
+    ]
+  },
+  "skills": [
+    {
+      "group": "Software engineering",
+      "items": [
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Angular",
+        "Node.js",
+        "MongoDB",
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "group": "Platforms & delivery engineering",
+      "items": [
+        "ServiceNow (SAM, ITSM)",
+        "REST APIs",
+        "Git & CI/CD",
+        "Performance Tuning"
+      ]
+    },
+    {
+      "group": "Engineering leadership",
+      "items": [
+        "Technical Leadership",
+        "Client Direction",
+        "Stakeholder Management",
+        "Pre-sales & Estimates",
+        "Solution Design",
+        "Hiring & Performance Evaluation",
+        "Agile Delivery",
+        "Technical Training & Knowledge Transfer"
+      ]
+    }
+  ],
+  "education": {
+    "degrees": [
+      {
+        "text": "Bachelor of Science (B.Sc.) in Computer Science, University of Cagliari (2011)"
+      }
+    ],
+    "additional": [
+      {
+        "text": "Certified React Developer Professional Level, W3Schools",
+        "href": "https://verify.w3schools.com/1QRUA6J16Y"
+      }
+    ]
+  },
+  "contact": {
+    "intro": "If you need someone who writes the software and also holds the project together, write to me or connect on LinkedIn. I read and reply to every message.",
+    "footnote": "Also available for remote work, relocation, or regular travel."
+  },
+  "gdpr": "I authorize the processing of personal data contained in my curriculum vitae pursuant to Art. 13 of the GDPR (EU Regulation 2016/679)."
+}
