@@ -42,7 +42,7 @@
       "The technical voice with the client, from the first estimate to the steering meeting, including system integrators and delivery partners.",
       "Client engagements and internal work, hiring interviews, and evaluation of people’s performance and results. Also able to conceive a product and drive its development from scratch."
     ],
-    "pdfSummary": "More than fifteen years in software, starting as a developer. For more than ten years, leading as well as building, and for over five of those years technical direction was the core of the job. Dozens of clients, from fashion and retail to banking and insurance, and work with system integrators and delivery partners. The technical voice with the client, from pre-sales estimates and proposals to steering meetings, and accountable for production after go-live. Hiring interviews, and evaluation of people’s performance and results."
+    "pdfSummary": "More than fifteen years in software, starting as a developer. For more than ten years, leading as well as building, and for over five of those years technical direction was the core of the job. Dozens of clients, from fashion and retail to banking and insurance, and work with system integrators and delivery partners. With the client, from the need and the solution through to production, except the sale. Accountable after go-live. Hiring interviews, and evaluation of people’s performance and results."
   },
   "practice": [
     {
@@ -69,15 +69,15 @@
       "company": "Stackhouse (Spindox group)",
       "start": "Sep 2024",
       "end": "Present",
-      "note": "Direction, planning, and delivery of the work, while still writing the code.",
+      "note": "Lead on the project and still in the code, through to production.",
       "bullets": [
         {
-          "text": "Plan the roadmap and the sprints, set backlog priorities, and run retrospectives with product and client stakeholders.",
-          "short": "Plan the roadmap and the sprints, set backlog priorities, and run retrospectives with product and client stakeholders."
+          "text": "With the client, on site and remotely: the solution, the roadmap, and delivery to production. Integrations, portals, features, and servers.",
+          "short": "With the client, on site and remotely: the solution, the roadmap, and delivery to production. Integrations, portals, features, and servers."
         },
         {
-          "text": "Set the technical direction, architecture, trade-offs, and solution design, and the organizational one: scope, priorities, and who delivers what.",
-          "short": "Set the technical direction, architecture, trade-offs, and solution design, and the organizational one: scope, priorities, and who delivers what."
+          "text": "Lead the work and write the code, with people from delivery partners and from the client on the engagement.",
+          "short": "Lead the work and write the code, with people from delivery partners and from the client on the engagement."
         },
         {
           "text": "Deliver ServiceNow solutions (SAM, ITSM, widgets, business rules, flows) on client and internal engagements.",
@@ -101,23 +101,19 @@
       "company": "Vivocha",
       "start": "Jul 2012",
       "end": "Sep 2024",
-      "note": "Twelve years with enterprise clients, from the developer who built the work to the lead who owned it.",
+      "note": "Twelve years with enterprise clients. With them, everything except the sale.",
       "bullets": [
         {
-          "text": "Worked as senior developer, project manager, technical lead, and trainer, as each engagement required. For more than five years, technical direction was the core of that role.",
-          "short": "Worked as senior developer, project manager, technical lead, and trainer, as each engagement required. For more than five years, technical direction was the core of that role."
+          "text": "Studied the need and the possible solutions with the client, technical and functional, then built them or planned them with the internal team.",
+          "short": "Studied the need and the possible solutions with the client, technical and functional, then built them or planned them with the internal team."
         },
         {
-          "text": "Owned engagements from discovery to go-live: the requirements, the technical decisions, and the client relationship when scope or priority changed.",
-          "short": "Owned engagements from discovery to go-live: the requirements, the technical decisions, and the client relationship when scope or priority changed."
+          "text": "On site with the client or the partner, trained their developers to build on the platform and integrate with the JavaScript SDKs and REST APIs already shipped.",
+          "short": "On site with the client or the partner, trained their developers to build on the platform and integrate with the JavaScript SDKs and REST APIs already shipped."
         },
         {
           "text": "Designed and built custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners.",
           "short": "Designed and built custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners."
-        },
-        {
-          "text": "Taught engineering teams around the world to run the JavaScript SDKs and REST APIs we had shipped.",
-          "short": "Taught engineering teams around the world to run the JavaScript SDKs and REST APIs we had shipped."
         },
         {
           "text": "After go-live, stayed accountable for production, including escalated incidents that were SLA-critical.",
@@ -156,9 +152,9 @@
       {
         "name": "Enterprise Integrations & Widgets",
         "stack": "JavaScript, Angular, Node.js, CSS, REST APIs",
-        "text": "Custom integrations for enterprise clients across industries, from the first scope through delivery. Also embeddable chat and video-chat widgets: real-time messaging, notifications, and event handling, used in client portals.",
+        "text": "Custom integrations for enterprise clients across industries, from the first scope through delivery. Also embeddable chat and video-chat widgets: real-time messaging, notifications, and event handling, used in client portals. The widget work covered new builds and later changes to fix or modernize them.",
         "pdfName": "Enterprise Integrations & Widgets",
-        "pdf": "Custom integrations for enterprise clients across industries, from the first scope through delivery, plus embeddable chat and video-chat widgets with real-time messaging (JavaScript, Angular, Node.js, REST APIs)."
+        "pdf": "Custom integrations for enterprise clients across industries, from the first scope through delivery, plus embeddable chat and video-chat widgets with real-time messaging. The widget work covered new builds and later changes to fix or modernize them (JavaScript, Angular, Node.js, REST APIs)."
       },
       {
         "name": "Technical Training",
@@ -186,7 +182,7 @@
     {
       "group": "Platforms & delivery engineering",
       "items": [
-        "AWS",
+        "Amazon AWS (S3, Lambda, DynamoDB, CloudFront, EC2, messaging)",
         "ServiceNow (SAM, ITSM)",
         "REST APIs",
         "Git & CI/CD",

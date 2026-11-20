@@ -3,7 +3,7 @@
 const { esc } = require('./lib/html');
 
 function render(data) {
-  const { person, about, experience, projects, skills, skillsNote, education, gdpr, site } = data;
+  const { person, about, experience, projects, skills, education, gdpr, site } = data;
   const skillLines = skills
     .map((g) => `<p class="skills-line"><strong>${esc(g.group)}:</strong> ${g.items.map(esc).join(', ')}</p>`)
     .join('');
@@ -53,7 +53,7 @@ function render(data) {
   </header>
   <section><h2>Profile</h2><p class="summary">${esc(about.pdfSummary)}</p></section>
   <section><h2>Experience</h2>${jobs}</section>
-  <section><h2>Skills</h2>${skillLines}${skillsNote ? `<p>${esc(skillsNote)}</p>` : ''}</section>
+  <section><h2>Skills</h2>${skillLines}</section>
   <section class="projects"><h2>${projects.items.filter((p) => p.pdf).length > 1 ? 'Selected projects' : 'Selected project'}</h2>${projectLines}</section>
   <section><h2>Education</h2>${education.degrees.map((d) => `<p>${esc(d.text)}</p>`).join('')}</section>
   <section><h2>Certifications</h2>${certs}</section>
