@@ -1,0 +1,19 @@
+.section-practice { padding-block: clamp(2rem, 4vw, 3rem); }
+.practice { display: grid; }
+.practice-row {
+  display: grid;
+  grid-template-columns: minmax(11rem, 16rem) minmax(0, 1fr);
+  gap: 0.35rem clamp(1.25rem, 3vw, 2.5rem);
+  align-items: baseline;
+  padding-block: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+.practice-row:last-child { border-bottom: 1px solid var(--line); }
+.practice-row h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); letter-spacing: -0.02em; }
+.practice-row p { color: var(--text2); font-size: 1.05rem; }
+.practice-row p span { display: inline-block; white-space: nowrap; }
+.practice-text { max-width: 62ch; }
+.practice-row p span + span::before { content: "·"; color: var(--accent); padding-inline: 0.55rem; }
+@media (max-width: 680px) {
+  .practice-row { grid-template-columns: 1fr; gap: 0.3rem; }
+}

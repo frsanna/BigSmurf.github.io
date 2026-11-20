@@ -1,5 +1,6 @@
-.skill-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
-.skill-group h3 { font-size: 1.05rem; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--accent-strong); }
-.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.chips li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.95rem; font-weight: 500; }
-@media (max-width: 860px) { .skill-groups { grid-template-columns: 1fr; } }
+.skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-xl) var(--space-lg); }
+.skill-group h3 { font-size: 1.05rem; margin-bottom: var(--space-md); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--accent-strong); }
+.chips { display: grid; gap: var(--space-xs); }
+.chips li { position: relative; padding-left: 1.15rem; font-size: 1.02rem; color: var(--text); }
+.chips li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.4em; height: 0.4em; border-radius: 50%; background: var(--accent); }
+.skills-note { margin-top: var(--space-xl); max-width: 42ch; color: var(--text2); font-size: 1.05rem; }

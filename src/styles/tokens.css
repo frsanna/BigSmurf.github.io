@@ -33,7 +33,17 @@
   --ink-accent2: #f0896f;   /* coral on ink, 6.9:1 */
   --ink-focus: #f4a28c;
   --radius: 14px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --font: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --wrap: 72rem;
   --header-h: 4rem;
+  /* 4px base. Tight inside a group, open between groups. */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --section: clamp(2.75rem, 4.5vw, 4.25rem);
 }

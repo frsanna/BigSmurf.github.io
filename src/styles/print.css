@@ -5,7 +5,6 @@
   .hero .fact-value, .hero .fact-label { color: #000; }
   .section, .hero { padding-block: 1.25rem; }
   .section-alt, .section-contact { background: none; }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  .job, .card, .strength { break-inside: avoid; box-shadow: none; }
+  .job, .card { break-inside: avoid; box-shadow: none; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
 }

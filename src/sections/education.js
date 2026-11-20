@@ -15,9 +15,9 @@ module.exports = {
 <section id="education" class="section" aria-labelledby="education-title">
   <div class="wrap">
     <header class="section-head"><h2 id="education-title">Education &amp; Certifications</h2></header>
-    <ul class="edu-list reveal">${degrees}</ul>
+    <ul class="edu-list">${degrees}</ul>
     <p class="edu-label">Certifications</p>
-    <ul class="edu-list reveal">${extra}</ul>
+    <ul class="edu-list">${extra}</ul>
   </div>
 </section>`;
   }

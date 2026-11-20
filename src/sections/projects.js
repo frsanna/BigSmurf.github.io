@@ -7,7 +7,7 @@ module.exports = {
     const cards = projects.items
       .map(
         (p) => `
-      <article class="card reveal">
+      <article class="card">
         <h3>${esc(p.name)}</h3>
         ${p.stack ? `<p class="stack">${esc(p.stack)}</p>` : ''}
         <p>${esc(p.text)}</p>

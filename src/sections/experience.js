@@ -18,7 +18,7 @@ module.exports = {
       .map((job) => {
         const bullets = job.bullets.map((b) => `<li>${esc(b.text)}</li>`).join('');
         return `
-      <li class="job reveal">
+      <li class="job">
         <p class="job-dates">${time(job.start)} – ${time(job.end)}</p>
         <div class="job-body">
           <h3>${esc(job.role)}</h3>

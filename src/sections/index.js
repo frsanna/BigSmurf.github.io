@@ -7,6 +7,7 @@ module.exports = [
   require('./about'),
   require('./experience'),
   require('./projects'),
+  require('./practice'),
   require('./skills'),
   require('./education'),
   require('./contact')

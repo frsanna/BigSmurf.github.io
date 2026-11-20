@@ -1,6 +1,17 @@
-.stack { font-size: 0.9rem; font-weight: 600; color: var(--accent) !important; }
-.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: stretch; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; display: grid; align-content: start; gap: 0.6rem; }
-.card h3 { font-size: 1.2rem; }
-.card p:not(.stack) { color: var(--text2); font-size: 1rem; }
-@media (max-width: 960px) { .cards { grid-template-columns: 1fr; } }
+.stack { font-size: 0.95rem; font-weight: 600; color: var(--accent) !important; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--space-xl) var(--space-lg); }
+.card { display: grid; align-content: start; gap: 0.45rem; padding-top: 1.1rem; border-top: 2px solid var(--ink); }
+.card h3 { font-size: clamp(1.35rem, 2vw, 1.6rem); letter-spacing: -0.03em; }
+.card p:not(.stack) { color: var(--text2); font-size: 1.05rem; }
+.card:first-child {
+  grid-column: 1 / -1; grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  gap: 0.5rem 3rem; padding: clamp(1.5rem, 3vw, 2.25rem); border-top: 0; background: var(--ink); color: var(--on-ink);
+}
+.card:first-child h3 { color: #fff; font-size: clamp(1.7rem, 3vw, 2.35rem); }
+.card:first-child .stack { color: var(--ink-accent) !important; }
+.card:first-child h3, .card:first-child .stack { grid-column: 1; }
+.card:first-child p:not(.stack) { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--on-ink); max-width: 58ch; }
+@media (max-width: 900px) {
+  .card:first-child { grid-template-columns: 1fr; }
+  .card:first-child p:not(.stack) { grid-column: 1; grid-row: auto; }
+}

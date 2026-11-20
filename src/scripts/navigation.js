@@ -34,7 +34,7 @@ function initNavigation() {
     }
   });
 
-  // Past the hero's top area the inline links are gone: switch to the floating menu.
+  // Past the hero, pin the bar. Close a mobile menu that was open when returning to the top.
   const onScroll = () => {
     const scrolled = window.scrollY > 160;
     if (!scrolled && root.classList.contains('scrolled')) {
@@ -68,35 +68,4 @@ function initNavigation() {
     { rootMargin: '-45% 0px -50% 0px' }
   );
   document.querySelectorAll('main > section[id]').forEach((section) => spy.observe(section));
-}
-
-// Fade-in of content blocks as they enter the viewport.
-function initReveal() {
-  const items = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    items.forEach((el) => el.classList.add('is-visible'));
-    return;
-  }
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { rootMargin: '0px 0px -8% 0px' }
-  );
-  // Items already in view stay visible; only the ones below the fold animate in.
-  // Read all positions first, then write, to avoid layout thrashing.
-  const viewport = window.innerHeight;
-  const inView = Array.from(items, (el) => el.getBoundingClientRect().top < viewport);
-  items.forEach((el, i) => {
-    if (inView[i]) {
-      el.classList.add('is-visible');
-    }
-    observer.observe(el);
-  });
-  document.documentElement.classList.add('reveal-ready');
 }

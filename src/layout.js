@@ -4,7 +4,7 @@ const { icon } = require('./lib/icons');
 const { head, jsonLd } = require('./lib/seo');
 const easterEgg = require('./components/easter-egg');
 
-function header(sections) {
+function header(sections, person) {
   const links = sections
     .filter((s) => s.nav && s.id !== 'hero')
     .map((s) => `<li><a href="#${s.id}">${esc(s.nav)}</a></li>`)
@@ -13,6 +13,7 @@ function header(sections) {
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-bar">
+    <a class="brand" href="#hero">${esc(person.name)}</a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
       <span class="sr-only">Menu</span>${icon('menu', 'icon icon-open')}${icon('close', 'icon icon-close')}
     </button>
@@ -47,7 +48,7 @@ ${jsonLd(data)}
 <script src="${js}" defer></script>
 </head>
 <body>
-${header(sections)}
+${header(sections, data.person)}
 <main id="main">
 ${body}
 </main>
@@ -66,7 +67,6 @@ ${head(data, { css, title: `Page not found | ${data.person.name}`, description: 
 </head>
 <body>
 <main class="not-found wrap">
-  <p class="eyebrow">404</p>
   <h1>Page not found</h1>
   <p>The page you were looking for does not exist.</p>
   <p><a class="btn btn-primary" href="/">Back to the home page</a></p>
