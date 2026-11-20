@@ -42,7 +42,7 @@
       "The technical voice with the client, from the first estimate to the steering meeting, including system integrators and delivery partners.",
       "Client engagements and internal work, hiring interviews, and evaluation of people’s performance and results. Also able to conceive a product and drive its development from scratch."
     ],
-    "pdfSummary": "More than fifteen years in software, starting as a developer. For more than ten years, leading as well as building, and for over five of those years technical direction was the core of the job. Dozens of clients, from fashion and retail to banking and insurance, and work with system integrators and delivery partners. With the client, from the need and the solution through to production, except the sale. Accountable after go-live. Hiring interviews, and evaluation of people’s performance and results."
+    "pdfSummary": "More than fifteen years in software, starting as a developer. For more than ten years, leading as well as building, and for over five of those years technical direction was the core of the job. Dozens of clients, from fashion and retail to banking and insurance, and work with system integrators and delivery partners. With the client, from the need and the solution through to production. Accountable after go-live. Hiring interviews, and evaluation of people’s performance and results."
   },
   "practice": [
     {
@@ -80,8 +80,8 @@
           "short": "Lead the work and write the code, with people from delivery partners and from the client on the engagement."
         },
         {
-          "text": "Deliver ServiceNow solutions (SAM, ITSM, widgets, business rules, flows) on client and internal engagements.",
-          "short": "Deliver ServiceNow solutions (SAM, ITSM, widgets, business rules, flows) on client and internal engagements."
+          "text": "Deliver ServiceNow solutions (ITSM, widgets, business rules, flows) on client and internal engagements.",
+          "short": "Deliver ServiceNow solutions (ITSM, widgets, business rules, flows) on client and internal engagements."
         },
         {
           "text": "Develop production features with React, TypeScript, and REST integrations.",
@@ -101,7 +101,7 @@
       "company": "Vivocha",
       "start": "Jul 2012",
       "end": "Sep 2024",
-      "note": "Twelve years with enterprise clients. With them, everything except the sale.",
+      "note": "Twelve years with enterprise clients.",
       "bullets": [
         {
           "text": "Studied the need and the possible solutions with the client, technical and functional, then built them or planned them with the internal team.",
@@ -114,6 +114,10 @@
         {
           "text": "Designed and built custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners.",
           "short": "Designed and built custom integrations and customer-facing web applications for enterprise clients across industries, including work with large delivery partners."
+        },
+        {
+          "text": "Built front-end and back-end work, reports and performance analysis, integrations with third-party systems, and custom widgets.",
+          "short": "Built front-end and back-end work, reports and performance analysis, integrations with third-party systems, and custom widgets."
         },
         {
           "text": "After go-live, stayed accountable for production, including escalated incidents that were SLA-critical.",
